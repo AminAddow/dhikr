@@ -5,8 +5,13 @@ export class dhikr extends Component {
 	render() {
 		return (
 			<div>
-				{this.props.listen.map((item) => <p>{item}</p>)}
-				<p>Loading</p>
+                {this.props.listen.map((item, index) => 
+                <>
+					<p key={item.key}>{item.text}</p>
+                    <p>Read {item.times} time</p>
+                    <br></br>
+                </>
+				)}
 			</div>
 		);
 	}
