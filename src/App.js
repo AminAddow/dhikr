@@ -1,13 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import Container from 'react-bootstrap/Container';
+import styles from './App.module.css';
+import Post from './component/post';
 
 function App() {
 	return (
 		<div className="App">
-			<header className="App-header">
-				<p>Let's go</p>
-			</header>
+			<div className={styles.header}>
+				<Container>
+					<Post />
+				</Container>
+			</div>
 		</div>
 	);
 }
