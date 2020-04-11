@@ -10,7 +10,8 @@ class post extends Component {
         super(props);
 
         this.state = {
-            list: []
+            list_m: [],
+            list_e: []
         };
     }
 
@@ -19,31 +20,65 @@ class post extends Component {
         var db = firebase.firestore();
 
         // init empty array
-        var dhikr = [];
+        var dhikr_m = [];
 
-        // Retrieve data from firestore
+        // Retrieve morning data from firestore
         db.collection('morning').orderBy("id").get().then((snapshot) => {
+            console.log('Morning data: ');
             snapshot.forEach((doc) => {
-                var id = doc.data().id;
-                var source = doc.data().source;
-                var text = doc.data().text;
-                var times_int = doc.data().times_int;
+                var id_m = doc.data().id;
+                var source_m = doc.data().source;
+                var text_m = doc.data().text;
+                var times_int_m = doc.data().times_int;
 
                 // below can be used to retireve read amount in string
                 // var times_string = doc.data().times_int;
 
                 // Push retrieved data to state array
-                dhikr.push({ id: id, text: text, times_int: times_int });
+                dhikr_m.push({ id: id_m, text: text_m, times_int: times_int_m });
 
-                console.log(' ');
-                console.log(id);
-                console.log(text);
-                console.log(times_int);
+                console.log(id_m, text_m, times_int_m);
 
             });
             // Send local array to state
-            this.setState({ list: [...this.state.list, ...dhikr] });
+            this.setState({ list_m: [...this.state.list_m, ...dhikr_m] });
+
+            console.log("---------------- Morning end!");
+
         });
+
+        // init empty array
+        var dhikr_e = [];
+
+
+        // Retrieve evening data from firestore
+        db.collection('evening').orderBy("id").get().then((snapshot) => {
+            console.log('Evening data: ');
+            snapshot.forEach((doc) => {
+                var id_e = doc.data().id;
+                var source_e = doc.data().source;
+                var text_e = doc.data().text;
+                var times_int_e = doc.data().times_int;
+
+                // below can be used to retireve read amount in string
+                // var times_string = doc.data().times_int;
+
+                // Push retrieved data to state array
+                dhikr_e.push({ id: id_e, text: text_e, times_int: times_int_e });
+
+                console.log(id_e, text_e, times_int_e);
+
+
+            });
+            // Send local array to state
+            this.setState({ list_e: [...this.state.list_e, ...dhikr_e] });
+
+            console.log("---------------- Evening end!");
+
+        });
+
+
+
     };
 
     componentDidMount() {
@@ -54,7 +89,7 @@ class post extends Component {
         return (
             <div>
                 {
-                    this.state.list.map(list => (
+                    this.state.list_m.map(list => (
                         <>
                             <Row className={styles.parent}>
                                 <Col className={styles.out} xs={{ span: 10, offset: 1 }} sm={{ span: 8, offset: 2 }}>

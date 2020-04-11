@@ -5,7 +5,7 @@
 .header {
 	background-color: #FFFBF0;
 	font-family: 'Trebuchet MS', 'Libre Baskerville', serif;
-	font-size: calc(20px + 1vw);
+	font-size: calc(26px + 1vw);
 	color: black;
 }
 
@@ -22,9 +22,8 @@
 
 .id {
     justify-content: flex-end;
-    padding-bottom: 20px;    
+    padding-bottom: 10px;    
 }
-
 
 .parent {
    height: 100vh;
@@ -32,10 +31,12 @@
    align-items: center;
 }
 
-
 .greentext {
-    padding-top: 20px; 
-    color: #AFBC8C;
-    font-size: calc(10px + 1vw);
+    font-size: calc(16px + 1vw);
+}
 
+.id, .greentext {
+    font-family: "Spectral", "Libre Baskerville", "serif";
+    font-weight: 300;
+    color: #667543;
 }
