@@ -1,0 +1,42 @@
+.App {
+	text-align: center;
+}
+
+.header {
+	background-color: #FFFBF0;
+	font-family: 'Trebuchet MS', 'Libre Baskerville', serif;
+	font-size: calc(26px + 1vw);
+	color: black;
+}
+
+.out {
+    /* border-style: solid;
+    border-color: #AFBC8C; */
+    height: fit-content;
+    }
+
+.in {
+    /* border-style: dotted;
+    border-color:red; */
+}
+
+.id {
+    justify-content: flex-end;
+    padding-bottom: 10px;    
+}
+
+.parent {
+   height: 100vh;
+   display: flex;
+   align-items: center;
+}
+
+.greentext {
+    font-size: calc(16px + 1vw);
+}
+
+.id, .greentext {
+    font-family: "Spectral", "Libre Baskerville", "serif";
+    font-weight: 300;
+    color: #667543;
+}

@@ -1,64 +1,115 @@
 import React, { Component } from 'react';
 import firebase from './../firebase';
-import Dhikr from './dhikr';
+import styles from './../styles/App.module.css';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 class post extends Component {
-	constructor(props) {
-		super(props);
+    constructor(props) {
+        super(props);
 
-		this.state = {
-			list: []
-		};
-	}
+        this.state = {
+            list_m: [],
+            list_e: []
+        };
+    }
 
-	getData = () => {
-		// Init connection to firestore
-		var db = firebase.firestore();
+    getData = () => {
+        // Init connection to firestore
+        var db = firebase.firestore();
 
-		// init empty array
-		// var dhikr = [];
+        // init empty array
+        var dhikr_m = [];
 
-		var dhikr = [];
+        // Retrieve morning data from firestore
+        db.collection('morning').orderBy("id").get().then((snapshot) => {
+            console.log('Morning data: ');
+            snapshot.forEach((doc) => {
+                var id_m = doc.data().id;
+                var source_m = doc.data().source;
+                var text_m = doc.data().text;
+                var times_int_m = doc.data().times_int;
 
-		// Retrieve data from firestore
-		db.collection('morning').get().then((snapshot) => {
-			snapshot.forEach((doc) => {
-				var key = doc.data().key;
-				var text = doc.data().text;
-				var times = doc.data().times;
+                // below can be used to retireve read amount in string
+                // var times_string = doc.data().times_int;
 
-				dhikr.push({ key: key, text: text, times: times });
+                // Push retrieved data to state array
+                dhikr_m.push({ id: id_m, text: text_m, times_int: times_int_m });
 
-				console.log(' ');
-				console.log(key);
-				console.log(text);
-				console.log(times);
+                console.log(id_m, text_m, times_int_m);
 
-				// Push data to local array
-				// dhikr.push(doc.data().text);
+            });
+            // Send local array to state
+            this.setState({ list_m: [...this.state.list_m, ...dhikr_m] });
 
-				// this.setState((prevState) => ({
-				// 	list: {
-				// 		...prevState.list,
-				// 		text: text,
-				// 		times: times
-				// 	}
-				// }));
-			});
-			console.log(dhikr);
-			// Send local array to state
-			this.setState({ list: [ ...this.state.list, ...dhikr ] });
-		});
-	};
+            console.log("---------------- Morning end!");
 
-	componentDidMount() {
-		this.getData();
-	}
+        });
 
-	render() {
-		return <div>{<Dhikr listen={this.state.list} />}</div>;
-		// return <div />;
-	}
+        // init empty array
+        var dhikr_e = [];
+
+
+        // Retrieve evening data from firestore
+        db.collection('evening').orderBy("id").get().then((snapshot) => {
+            console.log('Evening data: ');
+            snapshot.forEach((doc) => {
+                var id_e = doc.data().id;
+                var source_e = doc.data().source;
+                var text_e = doc.data().text;
+                var times_int_e = doc.data().times_int;
+
+                // below can be used to retireve read amount in string
+                // var times_string = doc.data().times_int;
+
+                // Push retrieved data to state array
+                dhikr_e.push({ id: id_e, text: text_e, times_int: times_int_e });
+
+                console.log(id_e, text_e, times_int_e);
+
+
+            });
+            // Send local array to state
+            this.setState({ list_e: [...this.state.list_e, ...dhikr_e] });
+
+            console.log("---------------- Evening end!");
+
+        });
+
+
+
+    };
+
+    componentDidMount() {
+        this.getData();
+    }
+
+    render() {
+        return (
+            <div>
+                {
+                    this.state.list_m.map(list => (
+                        <>
+                            <Row className={styles.parent}>
+                                <Col className={styles.out} xs={{ span: 10, offset: 1 }} sm={{ span: 8, offset: 2 }}>
+                                    <Row className={styles.in, styles.id}>
+                                        <div>{list.id}</div>
+                                    </Row>
+                                    <Row className={styles.in}>
+                                        <p align="right" dir="rtl" key={list.id}>{list.text}</p>
+                                    </Row>
+                                    <Row className={styles.in, styles.greentext}>
+                                        <p>Read {list.times_int} time</p>
+                                    </Row>
+                                </Col>
+                            </Row>
+                        </>
+                    ))
+                }
+            </div>
+        )
+    }
 }
 
 export default post;
