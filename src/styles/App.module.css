@@ -1,3 +1,4 @@
+
 .App {
 	text-align: center;
 }
@@ -39,4 +40,13 @@
     font-family: "Spectral", "Libre Baskerville", "serif";
     font-weight: 300;
     color: #667543;
+}
+
+.first {
+  padding-top: 100px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }

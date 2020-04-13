@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import Buttonjs from "./button";
+import Button from 'react-bootstrap/Button';
 import firebase from './../firebase';
 import styles from './../styles/App.module.css';
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 class post extends Component {
     constructor(props) {
@@ -11,7 +13,9 @@ class post extends Component {
 
         this.state = {
             list_m: [],
-            list_e: []
+            list_e: [],
+            show_evening: false,
+            show_morning: true 
         };
     }
 
@@ -42,9 +46,7 @@ class post extends Component {
             });
             // Send local array to state
             this.setState({ list_m: [...this.state.list_m, ...dhikr_m] });
-
             console.log("---------------- Morning end!");
-
         });
 
         // init empty array
@@ -68,28 +70,51 @@ class post extends Component {
 
                 console.log(id_e, text_e, times_int_e);
 
-
             });
             // Send local array to state
             this.setState({ list_e: [...this.state.list_e, ...dhikr_e] });
-
             console.log("---------------- Evening end!");
-
         });
-
-
-
     };
 
     componentDidMount() {
         this.getData();
     }
 
+    clickMorning = () => {
+        console.log("Clicked Morning!");
+        this.setState({
+            show_evening: false,
+            show_morning: true
+        })
+    }
+        clickEvening = () => {
+        console.log("Clicked Evening!");
+                this.setState({
+            show_evening: true,
+            show_morning: false
+        })
+    }
+
     render() {
+
+        if (this.state.show_evening == true) {
+            var thelist = this.state.list_e
+        } else {
+            var thelist = this.state.list_m
+        }
+
         return (
+
             <div>
+                <Row>
+                    <Col className={styles.first}>
+                        <Button onClick={this.clickMorning} active={this.state.show_morning} variant="light-green" size="lg">Morning</Button>
+                        <Button onClick={this.clickEvening} active={this.state.show_evening} variant="light-green" size="lg">Evening</Button>
+                    </Col>
+                </Row>
                 {
-                    this.state.list_m.map(list => (
+                    thelist.map(list => (
                         <>
                             <Row className={styles.parent}>
                                 <Col className={styles.out} xs={{ span: 10, offset: 1 }} sm={{ span: 8, offset: 2 }}>
