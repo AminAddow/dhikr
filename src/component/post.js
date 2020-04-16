@@ -15,7 +15,9 @@ class post extends Component {
             list_m: [],
             list_e: [],
             show_evening: false,
-            show_morning: true 
+            show_morning: true,
+            setColor: "light-green",
+            setNone: ""
         };
     }
 
@@ -88,9 +90,9 @@ class post extends Component {
             show_morning: true
         })
     }
-        clickEvening = () => {
+    clickEvening = () => {
         console.log("Clicked Evening!");
-                this.setState({
+        this.setState({
             show_evening: true,
             show_morning: false
         })
@@ -98,10 +100,21 @@ class post extends Component {
 
     render() {
 
+        var buttons;
         if (this.state.show_evening == true) {
             var thelist = this.state.list_e
+            buttons =
+                <>
+                    <Button onClick={this.clickMorning} active={this.state.show_morning} variant="light-green" size="lg">Morning</Button>
+                    <Button onClick={this.clickEvening} active={this.state.show_evening} variant="" size="lg">Evening</Button>
+                </>
         } else {
             var thelist = this.state.list_m
+            buttons =
+                <>
+                    <Button onClick={this.clickMorning} active={this.state.show_morning} variant="" size="lg">Morning</Button>
+                    <Button onClick={this.clickEvening} active={this.state.show_evening} variant="light-green" size="lg">Evening</Button>
+                </>
         }
 
         return (
@@ -109,8 +122,7 @@ class post extends Component {
             <div>
                 <Row>
                     <Col className={styles.first}>
-                        <Button onClick={this.clickMorning} active={this.state.show_morning} variant="light-green" size="lg">Morning</Button>
-                        <Button onClick={this.clickEvening} active={this.state.show_evening} variant="light-green" size="lg">Evening</Button>
+                        {buttons}
                     </Col>
                 </Row>
                 {
