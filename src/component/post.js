@@ -105,15 +105,15 @@ class post extends Component {
             var thelist = this.state.list_e
             buttons =
                 <>
-                    <Button onClick={this.clickMorning} active={this.state.show_morning} variant="" size="lg">Morning</Button>
-                    <Button onClick={this.clickEvening} active={this.state.show_evening} variant="light-green" size="lg">Evening</Button>
+                    <Button className={styles.button} onClick={this.clickMorning} active={this.state.show_morning} variant="" size="lg">Morning</Button>
+                    <Button className={styles.button} onClick={this.clickEvening} active={this.state.show_evening} variant="light-green" size="lg">Evening</Button>
                 </>
         } else {
             var thelist = this.state.list_m
             buttons =
                 <>
-                    <Button onClick={this.clickMorning} active={this.state.show_morning} variant="light-green" size="lg">Morning</Button>
-                    <Button onClick={this.clickEvening} active={this.state.show_evening} variant="" size="lg">Evening</Button>
+                    <Button className={styles.button} onClick={this.clickMorning} active={this.state.show_morning} variant="light-green" size="lg">Morning</Button>
+                    <Button className={styles.button} onClick={this.clickEvening} active={this.state.show_evening} variant="" size="lg">Evening</Button>
                 </>
         }
 
