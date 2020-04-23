@@ -15,29 +15,20 @@ html {
 }
 
 .landing { 
-    height: 100vh;
-    display: flex;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .landing_grp {
-    display: flex;
-  justify-content: center;
-  align-items: center;
-
+   height: 100vh;
 }
 
 
 .out {
-    /* border-style: solid;
-    border-color: #AFBC8C; */
     height: fit-content;
     }
 
-.in {
-    /* border-style: dotted;
-    border-color:red; */
-}
 
 .id {
     justify-content: flex-end;
@@ -77,8 +68,8 @@ html {
 }
 
 .img {
-    margin: 0 auto;
-    height: calc(100vw * (9/16));
+    height: auto;
+    width: 100%;
     max-width: 500px;
-    max-height: 500px;
+
 }

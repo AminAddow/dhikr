@@ -5,6 +5,7 @@ import firebase from './../firebase';
 import styles from './../styles/App.module.css';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card'
 
 class post extends Component {
     constructor(props) {
@@ -121,20 +122,18 @@ class post extends Component {
         return (
 
             <div>
-
-                <Row className={styles.landing}>
-                    <Col>
-                        <Row className={styles.landing_gpr}>
-                            <img  className={styles.img} src={Logo} alt="Logo" />
+                <div className={styles.landing_grp}>
+                        <Row>
+                            <Col className={styles.landing}>
+                                <img className={styles.img} src={Logo} alt="Logo" />
+                            </Col>
                         </Row>
-                        <Row className={styles.landing_gpr}>
-                            {buttons}
+                        <Row>
+                            <Col className={styles.landing}>
+                                {buttons}
+                            </Col>
                         </Row>
-
-                    </Col>
-                </Row>
-
-
+                </div>
                 {
                     thelist.map(list => (
                         <>
