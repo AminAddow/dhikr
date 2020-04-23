@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import Buttonjs from "./button";
+import Logo from './../img/logo.png';
 import Button from 'react-bootstrap/Button';
 import firebase from './../firebase';
 import styles from './../styles/App.module.css';
-import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
@@ -41,7 +40,7 @@ class post extends Component {
                 // var times_string = doc.data().times_int;
 
                 // Push retrieved data to state array
-                dhikr_m.push({ id: id_m, text: text_m, times_int: times_int_m });
+                dhikr_m.push({ id: id_m, source: source_m, text: text_m, times_int: times_int_m });
 
                 console.log(id_m, text_m, times_int_m);
 
@@ -68,7 +67,7 @@ class post extends Component {
                 // var times_string = doc.data().times_int;
 
                 // Push retrieved data to state array
-                dhikr_e.push({ id: id_e, text: text_e, times_int: times_int_e });
+                dhikr_e.push({ id: id_e, source: source_e, text: text_e, times_int: times_int_e });
 
                 console.log(id_e, text_e, times_int_e);
 
@@ -101,43 +100,57 @@ class post extends Component {
     render() {
 
         var buttons;
-        if (this.state.show_evening == true) {
-            var thelist = this.state.list_e
+        var thelist;
+
+        if (this.state.show_evening === true) {
+            thelist = this.state.list_e
             buttons =
                 <>
-                    <Button className={styles.button} onClick={this.clickMorning} active={this.state.show_morning} variant="" size="lg">Morning</Button>
-                    <Button className={styles.button} onClick={this.clickEvening} active={this.state.show_evening} variant="light-green" size="lg">Evening</Button>
+                    <Button href="#start" className={styles.button} onClick={this.clickMorning} active={this.state.show_morning} variant="" size="lg">Morning</Button>
+                    <Button href="#start" className={styles.button} onClick={this.clickEvening} active={this.state.show_evening} variant="light-green" size="lg">Evening</Button>
                 </>
         } else {
-            var thelist = this.state.list_m
+            thelist = this.state.list_m
             buttons =
                 <>
-                    <Button className={styles.button} onClick={this.clickMorning} active={this.state.show_morning} variant="light-green" size="lg">Morning</Button>
-                    <Button className={styles.button} onClick={this.clickEvening} active={this.state.show_evening} variant="" size="lg">Evening</Button>
+                    <Button href="#start" className={styles.button} onClick={this.clickMorning} active={this.state.show_morning} variant="light-green" size="lg">Morning</Button>
+                    <Button href="#start" className={styles.button} onClick={this.clickEvening} active={this.state.show_evening} variant="" size="lg">Evening</Button>
                 </>
         }
 
         return (
 
             <div>
-                <Row>
-                    <Col className={styles.first}>
-                        {buttons}
+
+                <Row className={styles.landing}>
+                    <Col>
+                        <Row className={styles.landing_gpr}>
+                            <img  className={styles.img} src={Logo} alt="Logo" />
+                        </Row>
+                        <Row className={styles.landing_gpr}>
+                            {buttons}
+                        </Row>
+
                     </Col>
                 </Row>
+
+
                 {
                     thelist.map(list => (
                         <>
-                            <Row className={styles.parent}>
+                            <Row id="start" className={styles.parent}>
                                 <Col className={styles.out} xs={{ span: 10, offset: 1 }} sm={{ span: 8, offset: 2 }}>
-                                    <Row className={styles.in, styles.id}>
+                                    <Row className={styles.id}>
                                         <div>{list.id}</div>
                                     </Row>
                                     <Row className={styles.in}>
                                         <p align="right" dir="rtl" key={list.id}>{list.text}</p>
                                     </Row>
-                                    <Row className={styles.in, styles.greentext}>
-                                        <p>Read {list.times_int} time</p>
+                                    <Row className={styles.greentext}>
+                                        <Col className={styles.bottom_text}>
+                                            <p>Read {list.times_int} time</p>
+                                            <p>{list.source}</p>
+                                        </Col>
                                     </Row>
                                 </Col>
                             </Row>

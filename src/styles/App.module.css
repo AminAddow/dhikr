@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 
 .App {
 	text-align: center;
@@ -9,6 +13,20 @@
 	font-size: calc(26px + 1vw);
 	color: black;
 }
+
+.landing { 
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.landing_grp {
+    display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
 
 .out {
     /* border-style: solid;
@@ -51,7 +69,16 @@
 
 }
 
-.button {
-    width: 150px;
-    height: 100px;
+.bottom_text {
+    display: flex;
+    justify-content: space-between;
+    font-size: calc(11px + 1vw);
+
+}
+
+.img {
+    margin: 0 auto;
+    height: calc(100vw * (9/16));
+    max-width: 500px;
+    max-height: 500px;
 }
