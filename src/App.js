@@ -6,9 +6,13 @@ import Footer from './component/footer';
 
 
 function App() {
+    {/* Version output */}
+    console.log("v.1.0");
+    
     return (
         <div className="App">
             <div className={styles.header}>
+            
                 <Container>
                     <Post />
                     <Footer />

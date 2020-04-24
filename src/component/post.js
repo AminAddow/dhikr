@@ -30,7 +30,7 @@ class post extends Component {
 
         // Retrieve morning data from firestore
         db.collection('morning').orderBy("id").get().then((snapshot) => {
-            console.log('Morning data: ');
+            // console.log('Morning data: ');
             snapshot.forEach((doc) => {
                 var id_m = doc.data().id;
                 var source_m = doc.data().source;
@@ -43,12 +43,12 @@ class post extends Component {
                 // Push retrieved data to state array
                 dhikr_m.push({ id: id_m, source: source_m, text: text_m, times_int: times_int_m });
 
-                console.log(id_m, text_m, times_int_m);
+                // console.log(id_m, text_m, times_int_m);
 
             });
             // Send local array to state
             this.setState({ list_m: [...this.state.list_m, ...dhikr_m] });
-            console.log("---------------- Morning end!");
+            // console.log("---------------- Morning end!");
         });
 
         // init empty array
@@ -57,7 +57,7 @@ class post extends Component {
 
         // Retrieve evening data from firestore
         db.collection('evening').orderBy("id").get().then((snapshot) => {
-            console.log('Evening data: ');
+            // console.log('Evening data: ');
             snapshot.forEach((doc) => {
                 var id_e = doc.data().id;
                 var source_e = doc.data().source;
@@ -70,12 +70,12 @@ class post extends Component {
                 // Push retrieved data to state array
                 dhikr_e.push({ id: id_e, source: source_e, text: text_e, times_int: times_int_e });
 
-                console.log(id_e, text_e, times_int_e);
+                // console.log(id_e, text_e, times_int_e);
 
             });
             // Send local array to state
             this.setState({ list_e: [...this.state.list_e, ...dhikr_e] });
-            console.log("---------------- Evening end!");
+            // console.log("---------------- Evening end!");
         });
     };
 
@@ -128,14 +128,9 @@ class post extends Component {
                             <img className={styles.img} src={Logo} alt="Logo" />
                         </Col>
                     </Row>
-                    {/* <Row>
-                        <Col className={styles.landing}>
-                            <p>One plays for your daily adhkar</p>
-                        </Col>
-                    </Row> */}
-                        <Col className={styles.landing}>
-                            <p>Select time of day:</p>
-                        </Col>
+                    <Col className={styles.landing}>
+                        <p>Select time of day: </p>
+                    </Col>
                     <Row>
                         <Col className={styles.landing}>
                             {buttons}
@@ -151,11 +146,12 @@ class post extends Component {
                                         <div>{list.id}</div>
                                     </Row>
                                     <Row className={styles.in}>
-                                        <p align="right" dir="rtl" key={list.id}>{list.text}</p>
+                                        <p key={list.id} align="right" dir="rtl">{list.text}</p>
                                     </Row>
                                     <Row className={styles.greentext}>
                                         <Col className={styles.bottom_text}>
-                                            <p>Read {list.times_int} time</p>
+                                        
+                                            <p>Read {list.times_int} {list.times_int > 1 ? "times" : "time" }</p>
                                             <p>{list.source}</p>
                                         </Col>
                                     </Row>

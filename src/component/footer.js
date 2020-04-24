@@ -8,7 +8,7 @@ class footer extends Component {
         return (
             <Row className={styles.greentext}>
                 <Col className={styles.landing}>
-                    <a className={styles.atag} href="amin@techniq.com">Feedback</a>
+                    <a className={styles.atag} href="mailto:amin@techniq.no">Feedback</a>
                 </Col>
             </Row>
                 );

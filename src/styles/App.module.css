@@ -2,7 +2,6 @@ html {
     scroll-behavior: smooth;
 }
 
-
 .App {
 	text-align: center;
 }
@@ -21,13 +20,10 @@ html {
   text-align: center;
 }
 
-.slogan {
-    position: absolute;
-    padding-top: -200px;
-}
 
 .landing p {
-    font-size: calc(16px + 1vw);
+    font-size: calc(14px + 1vw);
+
 }
 
 
@@ -48,7 +44,7 @@ html {
 }
 
 .parent {
-   height: 100vh;
+   height: 70vh;
    display: flex;
    align-items: center;
 }
@@ -75,7 +71,7 @@ html {
 .bottom_text {
     display: flex;
     justify-content: space-between;
-    font-size: calc(11px + 1vw);
+    font-size: calc(13px + 1vw);
 
 
 }
