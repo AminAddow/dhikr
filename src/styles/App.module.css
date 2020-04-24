@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 .App {
 	text-align: center;
 }
@@ -9,16 +13,30 @@
 	color: black;
 }
 
+.landing { 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+
+.landing p {
+    font-size: calc(14px + 1vw);
+
+}
+
+
+
+.landing_grp {
+   height: 100vh;
+}
+
+
 .out {
-    /* border-style: solid;
-    border-color: #AFBC8C; */
     height: fit-content;
     }
 
-.in {
-    /* border-style: dotted;
-    border-color:red; */
-}
 
 .id {
     justify-content: flex-end;
@@ -26,7 +44,7 @@
 }
 
 .parent {
-   height: 100vh;
+   height: 70vh;
    display: flex;
    align-items: center;
 }
@@ -40,3 +58,41 @@
     font-weight: 300;
     color: #667543;
 }
+
+.first {
+  padding-top: 100px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.bottom_text {
+    display: flex;
+    justify-content: space-between;
+    font-size: calc(13px + 1vw);
+
+
+}
+
+.img {
+    height: auto;
+    width: 100%;
+    max-width: 500px;
+
+}
+.txt {
+    text-align: center;
+    font-size: calc(12px + 1vw);
+}
+
+.button {
+    text-decoration: underline;
+}
+
+.atag {
+    font-size: 16px;
+    padding-bottom: 15px;
+    color: #667543;
+    }
