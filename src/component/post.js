@@ -123,16 +123,24 @@ class post extends Component {
 
             <div>
                 <div className={styles.landing_grp}>
-                        <Row>
-                            <Col className={styles.landing}>
-                                <img className={styles.img} src={Logo} alt="Logo" />
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col className={styles.landing}>
-                                {buttons}
-                            </Col>
-                        </Row>
+                    <Row>
+                        <Col className={styles.landing}>
+                            <img className={styles.img} src={Logo} alt="Logo" />
+                        </Col>
+                    </Row>
+                    {/* <Row>
+                        <Col className={styles.landing}>
+                            <p>One plays for your daily adhkar</p>
+                        </Col>
+                    </Row> */}
+                        <Col className={styles.landing}>
+                            <p>Select time of day:</p>
+                        </Col>
+                    <Row>
+                        <Col className={styles.landing}>
+                            {buttons}
+                        </Col>
+                    </Row>
                 </div>
                 {
                     thelist.map(list => (

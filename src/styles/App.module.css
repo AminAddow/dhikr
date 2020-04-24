@@ -18,7 +18,19 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
+
+.slogan {
+    position: absolute;
+    padding-top: -200px;
+}
+
+.landing p {
+    font-size: calc(16px + 1vw);
+}
+
+
 
 .landing_grp {
    height: 100vh;
@@ -65,6 +77,7 @@ html {
     justify-content: space-between;
     font-size: calc(11px + 1vw);
 
+
 }
 
 .img {
@@ -73,3 +86,17 @@ html {
     max-width: 500px;
 
 }
+.txt {
+    text-align: center;
+    font-size: calc(12px + 1vw);
+}
+
+.button {
+    text-decoration: underline;
+}
+
+.atag {
+    font-size: 16px;
+    padding-bottom: 15px;
+    color: #667543;
+    }
