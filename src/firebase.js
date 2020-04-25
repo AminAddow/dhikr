@@ -1,5 +1,6 @@
 import * as firebase from 'firebase/app';
 import 'firebase/firestore';
+import 'firebase/analytics';
 
 var firebaseConfig = {
 	apiKey: 'AIzaSyCIoSTqAkcX04YKVDf3Uz7VXNCspHwY-2g',
