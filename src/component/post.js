@@ -5,7 +5,6 @@ import firebase from './../firebase';
 import styles from './../styles/App.module.css';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Card from 'react-bootstrap/Card'
 
 class post extends Component {
     constructor(props) {
@@ -17,7 +16,6 @@ class post extends Component {
             show_evening: false,
             show_morning: true,
             setColor: "light-green",
-            setNone: ""
         };
     }
 
@@ -137,21 +135,22 @@ class post extends Component {
                         </Col>
                     </Row>
                 </div>
+
+                <div id="start" />
                 {
                     thelist.map(list => (
                         <>
-                            <Row id="start" className={styles.parent}>
+                            <Row className={styles.parent}>
                                 <Col className={styles.out} xs={{ span: 10, offset: 1 }} sm={{ span: 8, offset: 2 }}>
                                     <Row className={styles.id}>
-                                        <div>{list.id}</div>
+                                        <h1>{list.id}</h1>
                                     </Row>
-                                    <Row className={styles.in}>
+                                    <Row className={styles.post_text}>
                                         <p key={list.id} align="right" dir="rtl">{list.text}</p>
                                     </Row>
                                     <Row className={styles.greentext}>
                                         <Col className={styles.bottom_text}>
-                                        
-                                            <p>Read {list.times_int} {list.times_int > 1 ? "times" : "time" }</p>
+                                            <p>Read {list.times_int} {list.times_int > 1 ? "times" : "time"}</p>
                                             <p>{list.source}</p>
                                         </Col>
                                     </Row>

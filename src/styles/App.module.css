@@ -20,12 +20,9 @@ html {
   text-align: center;
 }
 
-
 .landing p {
     font-size: calc(14px + 1vw);
-
 }
-
 
 
 .landing_grp {
@@ -35,7 +32,7 @@ html {
 
 .out {
     height: fit-content;
-    }
+}
 
 
 .id {
@@ -43,8 +40,12 @@ html {
     padding-bottom: 10px;    
 }
 
+.post_text {
+    justify-content: flex-end;
+}
+
 .parent {
-   height: 70vh;
+   height: 80vh;
    display: flex;
    align-items: center;
 }
@@ -72,16 +73,14 @@ html {
     display: flex;
     justify-content: space-between;
     font-size: calc(13px + 1vw);
-
-
 }
 
 .img {
     height: auto;
     width: 100%;
     max-width: 500px;
-
 }
+
 .txt {
     text-align: center;
     font-size: calc(12px + 1vw);
@@ -95,4 +94,4 @@ html {
     font-size: 16px;
     padding-bottom: 15px;
     color: #667543;
-    }
+}

@@ -6,13 +6,12 @@ import Footer from './component/footer';
 
 
 function App() {
-    {/* Version output */}
-    console.log("v.1.0");
-    
+    // Version
+    console.log("v.1.1");
+
     return (
         <div className="App">
             <div className={styles.header}>
-            
                 <Container>
                     <Post />
                     <Footer />
