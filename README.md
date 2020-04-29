@@ -1,3 +1,8 @@
+🔥 Ny App for daglig Adhkar
+📚 Les Adkār sabah wa masā digitalt på mobil📱 eller PC 💻 
+
+🔗 Les dine daglige adhkar på https://dhikr.life/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
