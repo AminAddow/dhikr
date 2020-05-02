@@ -3,6 +3,8 @@ import Container from "react-bootstrap/Container";
 import styles from "./styles/App.module.css";
 import Post from "./component/post";
 import Footer from "./component/footer";
+import LogRocket from 'logrocket';
+LogRocket.init('tas7fm/dhikr-dev');
 
 function App() {
   // Version
