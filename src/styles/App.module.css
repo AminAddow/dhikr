@@ -1,97 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Scheherazade&display=swap");
+
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
-.App {
-	text-align: center;
+.main {
+  font-family: "Spectral", "Libre Baskerville", "serif";
+  font-size: calc(26px + 1vw);
+  background-color: #fffbf0;
+  color: black;
 }
 
-.header {
-	background-color: #FFFBF0;
-	font-family: 'Trebuchet MS', 'Libre Baskerville', serif;
-	font-size: calc(26px + 1vw);
-	color: black;
+.landing_wrapper {
+  height: 100vh;
 }
 
-.landing { 
+.landing_col {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
 
-.landing p {
-    font-size: calc(14px + 1vw);
+.landing_col p {
+  font-size: calc(14px + 1vw);
+  padding-bottom: 5px;
 }
 
-
-.landing_grp {
-   height: 100vh;
+.post_wrapper {
+  height: 80vh;
+  display: flex;
+  align-items: center;
 }
 
-
-.out {
-    height: fit-content;
+.post_inner_wrapper {
+  height: fit-content;
 }
 
-
-.id {
-    justify-content: flex-end;
-    padding-bottom: 10px;    
+.post_id {
+  justify-content: flex-end;
+  padding-bottom: 4px;
 }
 
 .post_text {
-    justify-content: flex-end;
+  justify-content: flex-end;
+  line-height: 1.3;
+  font-family: "Scheherazade", serif;
+  font-size: calc(32px + 1vw);
 }
 
-.parent {
-   height: 80vh;
-   display: flex;
-   align-items: center;
+.post_id,
+.post_footer,
+footer {
+  color: #667543;
 }
 
-.greentext {
-    font-size: calc(16px + 1vw);
-}
-
-.id, .greentext {
-    font-family: "Spectral", "Libre Baskerville", "serif";
-    font-weight: 300;
-    color: #667543;
-}
-
-.first {
-  padding-top: 100px;
-  height: 100vh;
+.post_footer,
+footer {
   display: flex;
-  align-items: center;
-  justify-content: center;
-
+  justify-content: space-between;
+  font-size: calc(14px + 1vw);
 }
 
-.bottom_text {
-    display: flex;
-    justify-content: space-between;
-    font-size: calc(13px + 1vw);
+.bold {
+  font-weight: bold;
 }
 
 .img {
-    height: auto;
-    width: 100%;
-    max-width: 500px;
-}
-
-.txt {
-    text-align: center;
-    font-size: calc(12px + 1vw);
+  height: auto;
+  width: 100%;
+  max-width: 500px;
 }
 
 .button {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
-.atag {
-    font-size: 16px;
-    padding-bottom: 15px;
-    color: #667543;
+.footer_email {
+  font-size: 16px;
+  padding-bottom: 15px;
+  color: #667543;
 }
