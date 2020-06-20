@@ -21,3 +21,16 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+### Firebase ###
+.idea
+**/node_modules/*
+**/.firebaserc
+./src/firebase.js
+
+### Firebase Patch ###
+.runtimeconfig.json
+.firebase/
+
+### Gitpod file ###
+.theia
