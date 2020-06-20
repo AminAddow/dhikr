@@ -1,6 +1,7 @@
 import * as firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/analytics";
+import "firebase/performance";
 
 var firebaseConfig = {
   apiKey: "AIzaSyCIoSTqAkcX04YKVDf3Uz7VXNCspHwY-2g",
@@ -14,6 +15,7 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 var fire = firebase.initializeApp(firebaseConfig);
+const perf = firebase.performance();
 
 firebase.analytics();
 
