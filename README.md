@@ -1,4 +1,4 @@
-Dhikr.life Firebase CI/CD
-🔥 Ny App for daglig Adhkar 📚 Les Adkār sabah wa masā digitalt på mobil📱 eller PC 💻
+# Dhikr.life  ![Firebase CI/CD](https://github.com/AminAddow/dhikr/workflows/Firebase%20CI/CD/badge.svg?branch=master)
 
-🔗 Les dine daglige adhkar på https://dhikr.life/
+🔥 Ny App for daglig Adhkar
+📚 Les Adkār sabah wa masā digitalt på mobil📱 eller PC 💻 
