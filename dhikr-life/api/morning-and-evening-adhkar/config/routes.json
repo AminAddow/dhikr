@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/morning-and-evening-adhkars",
+      "handler": "morning-and-evening-adhkar.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/morning-and-evening-adhkars/count",
+      "handler": "morning-and-evening-adhkar.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/morning-and-evening-adhkars/:id",
+      "handler": "morning-and-evening-adhkar.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/morning-and-evening-adhkars",
+      "handler": "morning-and-evening-adhkar.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/morning-and-evening-adhkars/:id",
+      "handler": "morning-and-evening-adhkar.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/morning-and-evening-adhkars/:id",
+      "handler": "morning-and-evening-adhkar.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
