@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/adhkars",
+      "handler": "adhkar.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/adhkars/count",
+      "handler": "adhkar.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/adhkars/:id",
+      "handler": "adhkar.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/adhkars",
+      "handler": "adhkar.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/adhkars/:id",
+      "handler": "adhkar.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/adhkars/:id",
+      "handler": "adhkar.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

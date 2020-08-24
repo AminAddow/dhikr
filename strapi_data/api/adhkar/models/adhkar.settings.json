@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "adhkar",
+  "collectionName": "adhkars",
   "info": {
-    "name": "adhkar"
+    "name": "Adhkar"
   },
   "options": {
     "increments": true,
@@ -10,14 +10,11 @@
   },
   "attributes": {
     "dhikr_id": {
-      "type": "integer",
-      "unique": false
-    },
-    "time_of_day": {
-      "type": "string"
+      "type": "integer"
     },
     "arabic_text": {
-      "type": "richtext"
+      "type": "richtext",
+      "required": true
     },
     "read_amount_text": {
       "type": "string"
@@ -36,6 +33,13 @@
     },
     "translation_nor": {
       "type": "richtext"
+    },
+    "time_of_day": {
+      "type": "enumeration",
+      "enum": [
+        "morning",
+        "evening"
+      ]
     }
   }
 }

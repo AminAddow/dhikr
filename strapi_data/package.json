@@ -1,5 +1,5 @@
 {
-  "name": "dhikr-life",
+  "name": "strapi-data",
   "private": true,
   "version": "0.1.0",
   "description": "A Strapi application",
@@ -11,15 +11,15 @@
   },
   "devDependencies": {},
   "dependencies": {
-    "strapi": "3.1.3",
-    "strapi-admin": "3.1.3",
-    "strapi-utils": "3.1.3",
-    "strapi-plugin-content-type-builder": "3.1.3",
-    "strapi-plugin-content-manager": "3.1.3",
-    "strapi-plugin-users-permissions": "3.1.3",
-    "strapi-plugin-email": "3.1.3",
-    "strapi-plugin-upload": "3.1.3",
-    "strapi-connector-bookshelf": "3.1.3",
+    "strapi": "3.1.4",
+    "strapi-admin": "3.1.4",
+    "strapi-utils": "3.1.4",
+    "strapi-plugin-content-type-builder": "3.1.4",
+    "strapi-plugin-content-manager": "3.1.4",
+    "strapi-plugin-users-permissions": "3.1.4",
+    "strapi-plugin-email": "3.1.4",
+    "strapi-plugin-upload": "3.1.4",
+    "strapi-connector-bookshelf": "3.1.4",
     "knex": "<0.20.0",
     "sqlite3": "latest"
   },
@@ -27,7 +27,7 @@
     "name": "A Strapi developer"
   },
   "strapi": {
-    "uuid": "50fbb700-2098-4ca5-92eb-3695bab13f2e"
+    "uuid": "f66e818f-d770-44f6-b199-e70c3d3166de"
   },
   "engines": {
     "node": ">=10.0.0",
