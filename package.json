@@ -7,6 +7,7 @@
 		"start": "next start"
 	},
 	"dependencies": {
+		"airtable": "^0.10.0",
 		"dotenv": "^8.2.0",
 		"firebase": "^7.17.2",
 		"isomorphic-unfetch": "^3.0.0",
@@ -15,6 +16,7 @@
 		"react-dom": "^16.13.1"
 	},
 	"devDependencies": {
+		"json-loader": "^0.5.7",
 		"postcss-flexbugs-fixes": "4.2.1",
 		"postcss-preset-env": "^6.7.0",
 		"tailwindcss": "^1.6.0"
