@@ -11,3 +11,9 @@
 /* Your own custom utilities */
 @import url('https://fonts.googleapis.com/css2?family=Scheherazade&display=swap');
 
+@layer utilities {
+.rtl {
+    direction: rtl;
+}
+}
+
