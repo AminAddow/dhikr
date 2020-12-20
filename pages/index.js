@@ -1,26 +1,53 @@
+import { useState } from "react";
 import Adhkar from "../components/adhkar";
 import Landing from "../components/landing";
-import Drawer from "../components/drawer";
+import Burger from "../components/svgs/burger";
+import Close from "../components/svgs/close";
 import Airtable from "airtable";
-import { useState, useEffect } from "react";
 import Head from "next/head";
 
 function IndexPage({ adhkar }) {
+  const [toggle, setToggle] = useState(false);
+
+  const drawer = (
+    <div className="absolute inset-y-0 right-0 bg-green-200 h-screen w-5/6 md:w-3/6 lg:w-2/6 xl:w-1/6">
+      <button
+        className="float-right pt-4"
+        onClick={() => {
+          setToggle(false);
+        }}
+      >
+        <Close />
+      </button>
+    </div>
+  );
+
   return (
     // full app
-    <div className="container bg-brown-100 w-full h-full ">
-      {/* Navigation drawer */}
-      <Drawer />
+    <div className="container">
+      <div className="grid grid-cols-6 grid-rows-24 gap-4 px-2 h-screen w-screen bg-green-500">
+        {/* Navigation drawer */}
+        {toggle ? drawer : ""}
+        <nav className="col-span-1 col-end-7 row-span-2 row-start-1">
+          <button
+            className="float-right pt-4"
+            onClick={() => {
+              setToggle(true);
+            }}
+          >
+            <Burger />
+          </button>
+        </nav>
 
-      {/* landing screen */}
-      {/* <div>Hei</div> */}
-      {/* card components */}
-      <div className="">
-        {adhkar.map((dhikr) => (
-          <ul>
-            <Adhkar data={dhikr} />
-          </ul>
-        ))}
+        {/* landing screen */}
+        {/* card components */}
+        <div className="">
+          {adhkar.map((dhikr) => (
+            <ul>
+              <Adhkar data={dhikr} />
+            </ul>
+          ))}
+        </div>
       </div>
     </div>
   );

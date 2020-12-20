@@ -1,4 +1,3 @@
-
 @import "tailwindcss/base";
 /* @import "./custom-base-styles.css"; */
 
@@ -9,11 +8,17 @@
 /* @import "./custom-utilities.css"; */
 
 /* Your own custom utilities */
-@import url('https://fonts.googleapis.com/css2?family=Scheherazade&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Scheherazade&display=swap");
 
 @layer utilities {
-.rtl {
+  .rtl {
     direction: rtl;
-}
+  }
 }
 
+/* If in need of different SVG sizes at different viewpoints. Add below */
+/* @layer components {
+  .svg-sizes {
+    @apply sm:;
+  }
+} */
