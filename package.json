@@ -1,23 +1,29 @@
 {
-  "name": "dhikr-next",
-  "version": "1.0.0",
-  "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start"
-  },
-  "dependencies": {
-    "dotenv": "^8.2.0",
-    "firebase": "^7.17.2",
-    "isomorphic-unfetch": "^3.0.0",
-    "next": "latest",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
-  },
-  "devDependencies": {
-    "postcss-flexbugs-fixes": "4.2.1",
-    "postcss-preset-env": "^6.7.0",
-    "tailwindcss": "^1.6.0"
-  },
-  "license": "MIT"
+	"name": "dhikr-next",
+	"version": "1.0.0",
+	"scripts": {
+		"dev": "next",
+		"build": "next build",
+		"start": "next start",
+		"export": "next export"
+	},
+	"dependencies": {
+		"airtable": "^0.10.0",
+		"autoprefixer": "^10.0.2",
+		"dotenv": "^8.2.0",
+		"isomorphic-unfetch": "^3.0.0",
+		"next": "^10.0.3",
+		"node-fetch": "^2.6.1",
+		"postcss": "^8.1.9",
+		"postcss-import": "^12.0.1",
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1"
+	},
+	"devDependencies": {
+		"json-loader": "^0.5.7",
+		"postcss-flexbugs-fixes": "4.2.1",
+		"postcss-preset-env": "^6.7.0",
+		"tailwindcss": "^2.0.1"
+	},
+	"license": "MIT"
 }
