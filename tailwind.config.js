@@ -3,11 +3,9 @@ module.exports = {
   theme: {
     fontFamily: {
       arabic: "Scheherazade",
+      playfair: "Playfair Display",
     },
     extend: {
-      colors: {
-        "accent-1": "#333",
-      },
       gridTemplateRows: {
         24: "repeat(24, minmax(0, 1fr))",
       },
@@ -53,6 +51,4 @@ module.exports = {
       },
     },
   },
-  variants: {},
-  plugins: [],
 };
