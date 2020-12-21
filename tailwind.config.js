@@ -7,6 +7,8 @@ module.exports = {
     },
     extend: {
       gridTemplateRows: {
+        11: "repeat(11, minmax(0, 1fr))",
+        12: "repeat(12, minmax(0, 1fr))",
         24: "repeat(24, minmax(0, 1fr))",
       },
       gridRowStart: {
@@ -49,6 +51,14 @@ module.exports = {
         24: "24",
         25: "25",
       },
+    },
+  },
+  variants: {
+    extend: {
+      backgroundColor: ["checked"],
+      borderColor: ["checked"],
+      textDecoration: ["focus-visible"],
+      backgroundColor: ["active"],
     },
   },
 };
