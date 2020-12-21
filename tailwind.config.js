@@ -3,12 +3,12 @@ module.exports = {
   theme: {
     fontFamily: {
       arabic: "Scheherazade",
+      playfair: "Playfair Display",
     },
     extend: {
-      colors: {
-        "accent-1": "#333",
-      },
       gridTemplateRows: {
+        11: "repeat(11, minmax(0, 1fr))",
+        12: "repeat(12, minmax(0, 1fr))",
         24: "repeat(24, minmax(0, 1fr))",
       },
       gridRowStart: {
@@ -53,6 +53,12 @@ module.exports = {
       },
     },
   },
-  variants: {},
-  plugins: [],
+  variants: {
+    extend: {
+      backgroundColor: ["checked"],
+      borderColor: ["checked"],
+      textDecoration: ["focus-visible"],
+      backgroundColor: ["active"],
+    },
+  },
 };
