@@ -17,8 +17,13 @@
 }
 
 /* If in need of different SVG sizes at different viewpoints. Add below */
-/* @layer components {
-  .svg-sizes {
-    @apply sm:;
+@layer components {
+  /* Checkbox in menu style */
+  .btn-check {
+    @apply form-checkbox appearance-none border-black border-solid border-2 rounded-md text-green-500 checked:border-green-700 checked:border-transparent;
   }
-} */
+
+  /* .svg-sizes {
+    @apply sm:;
+  } */
+}
