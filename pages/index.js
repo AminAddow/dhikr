@@ -49,7 +49,10 @@ function IndexPage({ adhkar }) {
     <div className="container font-playfair">
       <Head>
         <title>Dhikr.life</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta
+          name="viewport"
+          content="initial-scale=1.0, width=device-width user-scalable=no"
+        />
       </Head>
       <div className="grid grid-cols-6 grid-rows-24 gap-4 px-2 h-screen w-screen bg-green-500">
         {/* Navigation drawer */}
