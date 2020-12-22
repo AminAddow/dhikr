@@ -1,4 +1,6 @@
 module.exports = {
+  // Forms style
+  plugins: [require("@tailwindcss/custom-forms")],
   purge: ["./components/**/*.{js,ts,jsx,tsx}", "./pages/**/*.{js,ts,jsx,tsx}"],
   theme: {
     fontFamily: {
