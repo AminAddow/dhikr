@@ -49,9 +49,19 @@ function IndexPage({ adhkar }) {
     <div className="container font-playfair">
       <Head>
         <title>Dhikr.life</title>
+        <meta charSet="utf-8" />
+        <meta
+          name="Description"
+          content="Dhikr.life, Adhkar morning and evening, Dhikr, Supplications in islam, Sunnah adhkar, Adhkar Salafi"
+        />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
         />
       </Head>
       <div className="grid grid-cols-6 grid-rows-24 gap-4 px-2 h-screen w-screen bg-green-500">
