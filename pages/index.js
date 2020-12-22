@@ -51,7 +51,7 @@ function IndexPage({ adhkar }) {
         <title>Dhikr.life</title>
         <meta
           name="viewport"
-          content="initial-scale=1.0, width=device-width user-scalable=no"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
       </Head>
       <div className="grid grid-cols-6 grid-rows-24 gap-4 px-2 h-screen w-screen bg-green-500">
