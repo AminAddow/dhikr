@@ -9,7 +9,7 @@ import Head from "next/head";
 
 function IndexPage({ adhkar }) {
   // Menu opener state
-  const [toggle, setToggle] = useState(true);
+  const [toggle, setToggle] = useState(false);
 
   const check = (
     <svg
@@ -46,14 +46,13 @@ function IndexPage({ adhkar }) {
 
   return (
     // full app
-    <div className="container font-playfair">
+    <div className="container font-playfair ">
       <Head>
         <title>Dhikr.life</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <div className="grid grid-cols-6 grid-rows-24 gap-4 px-2 h-screen w-screen bg-green-500">
+      <div className="grid grid-cols-6 grid-rows-24 gap-4 px-2 h-screen w-screen bg-blue-500">
         {/* Navigation drawer */}
-        {toggle ? drawer : ""}
         <nav className="col-span-1 col-end-7 row-span-2 row-start-1">
           <button
             className="float-right pt-4"
@@ -64,16 +63,34 @@ function IndexPage({ adhkar }) {
             <Burger />
           </button>
         </nav>
-
+        {toggle ? drawer : ""}
         {/* landing screen */}
         {/* card components */}
-        <div className="">
-          {adhkar.map((dhikr) => (
-            <ul>
-              <Adhkar data={dhikr} />
-            </ul>
-          ))}
+        <div className="col-span-6 row-start-5 mx-2 md:w-3/4 md:mx-auto lg:w-3/4">
+          <div className="grid grid-rows-max grid-cols-max gap-6 py-2 bg-gray-100 rounded-xl">
+            <div className="row-start-1 col-span-full">
+              <p className="ml-4 mt-1 text-sm font-semibold">
+                Read <span>{adhkar[0].read_amount_int} </span>
+                {adhkar[0].read_amount_int > 1 ? "times" : "time"}
+              </p>
+            </div>
+            <div className="row-start-2 px-4">
+              <p className="text-4xl rtl font-arabic">
+                {adhkar[0].arabic_text}
+              </p>
+            </div>
+            <div className="row-start-3 col-span-full">
+              <p className="ml-4 mt-1 text-sm">{adhkar[0].source}</p>
+            </div>
+          </div>
         </div>
+        {/* <div className="">
+            {adhkar.map((dhikr) => (
+              <ul>
+                <Adhkar data={dhikr} />
+              </ul>
+            ))}
+          </div> */}
       </div>
     </div>
   );
@@ -97,7 +114,7 @@ export async function getStaticProps() {
         "translation_eng",
       ],
       sort: [{ field: "key_id", direction: "asc" }],
-      maxRecords: 5,
+      maxRecords: 1,
     })
     .all();
 
