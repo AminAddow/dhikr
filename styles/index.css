@@ -18,4 +18,16 @@
   body {
     @apply bg-gray-10;
   }
+
+  @font-face {
+    font-family: Scheherazade;
+    font-weight: 400;
+    src: url(fonts\Scheherazade-Regular.ttf) format("truetype");
+  }
+
+  @font-face {
+    font-family: Scheherazade;
+    font-weight: 700;
+    src: url(fonts\Scheherazade-bold.ttf) format("truetype");
+  }
 }
