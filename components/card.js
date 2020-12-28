@@ -10,7 +10,7 @@ export default function card({ adhkar }) {
   }
 
   return (
-    <div className="mx-2 mt-24 space-y-24 md:w-3/4 md:mx-auto lg:w-1/2 xl:w-1/3">
+    <div className="mt-24 space-y-24 md:w-3/4 md:mx-auto lg:w-1/2 xl:w-1/3">
       {adhkar.map((dhikr) => (
         <div
           key={dhikr.dhikr_id}
