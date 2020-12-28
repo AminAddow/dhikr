@@ -30,40 +30,38 @@ export default function translations() {
 
   return (
     <>
-      <div className="row-start-4 row-span-1 h-8">
+      <div className="block">
         <h1 className="subpixel-antialiased text-4xl font-bold">Translation</h1>
       </div>
-      <div className="row-start-6 row-span-1 col-span-6 h-8">
-        <form className="grid grid-rows-3 gap-2 align-middle">
-          <label className="row-span-1 inline-flex items-center text-2xl h-10">
-            <input
-              type="checkbox"
-              className="h-8 w-8 mr-4 btn-check"
-              name="english"
-              onChange={(event) => handleClick(event)}
-            />
-            English
-          </label>
-          <label className="row-span-1 inline-flex items-center text-2xl h-10">
-            <input
-              type="checkbox"
-              className="h-8 w-8 mr-4 btn-check"
-              name="french"
-              onChange={(event) => handleClick(event)}
-            />
-            Français
-          </label>
-          <label className="row-span-1 inline-flex items-center text-2xl h-10">
-            <input
-              type="checkbox"
-              className="h-8 w-8 mr-4 btn-check"
-              name="norsk"
-              onChange={(event) => handleClick(event)}
-            />
-            Norsk
-          </label>
-        </form>
-      </div>
+      <form className="block pl-4">
+        <label className="block items-center text-2xl h-10">
+          <input
+            type="checkbox"
+            className="h-8 w-8 mr-4 btn-check"
+            name="english"
+            onChange={(event) => handleClick(event)}
+          />
+          English
+        </label>
+        <label className="block items-center text-2xl h-10">
+          <input
+            type="checkbox"
+            className="h-8 w-8 mr-4 btn-check"
+            name="french"
+            onChange={(event) => handleClick(event)}
+          />
+          Français
+        </label>
+        <label className="block items-center text-2xl h-10">
+          <input
+            type="checkbox"
+            className="h-8 w-8 mr-4 btn-check"
+            name="norsk"
+            onChange={(event) => handleClick(event)}
+          />
+          Norsk
+        </label>
+      </form>
     </>
   );
 }

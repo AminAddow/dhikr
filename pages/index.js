@@ -30,8 +30,8 @@ function IndexPage({ adhkar }) {
   );
 
   const drawer = (
-    <div className="fixed inset-y-0 right-0 grid grid-cols-5 grid-rows-24 gap-6 px-4 bg-white w-5/6 md:w-3/6 lg:w-2/6 xl:w-1/6">
-      <nav className="col-span-1 col-end-7 row-span-2 row-start-1">
+    <div className="fixed inset-y-0 right-0 flow space-y-6 px-2 bg-white w-5/6 md:w-3/6 lg:w-2/6 xl:w-1/6">
+      <nav className="flow-root">
         <button
           className="float-right pt-4"
           onClick={() => {
@@ -41,7 +41,9 @@ function IndexPage({ adhkar }) {
           <Close />
         </button>
       </nav>
-      <Translations />
+      <div className="space-y-2">
+        <Translations />
+      </div>
     </div>
   );
 
@@ -50,22 +52,18 @@ TODO:
 [x] - Move card component to own seperate file
 [x] - Make drawer take whole screen height
 
- 
-
-
-
 */
 
   return (
     // full app
-    <body className="font-playfair bg-blue-500">
+    <div>
       <Head>
         <title>Dhikr.life</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <div className="grid grid-cols-6 grid-rows-24 gap-4 px-2 h-screen w-screen">
+      <div className="px-2 h-screen w-screen">
         {/* Navigation drawer */}
-        <nav className="col-span-1 col-end-7 row-span-2 row-start-1">
+        <nav className="flow-root">
           <button
             className="float-right pt-4"
             onClick={() => {
@@ -80,7 +78,7 @@ TODO:
         {/* Card components */}
         <Card adhkar={adhkar} />
       </div>
-    </body>
+    </div>
   );
 }
 
