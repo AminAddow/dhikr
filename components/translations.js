@@ -31,7 +31,9 @@ export default function translations() {
   return (
     <>
       <div className="block">
-        <h1 className="subpixel-antialiased text-4xl font-bold">Translation</h1>
+        <h1 className="subpixel-antialiased text-3xl font-bold">
+          Translations
+        </h1>
       </div>
       <form className="block pl-4">
         <label className="block items-center text-2xl h-10">

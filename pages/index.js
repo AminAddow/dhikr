@@ -1,12 +1,12 @@
 import { useState } from "react";
+import Head from "next/head";
+import Airtable from "airtable";
 import Adhkar from "../components/adhkar";
 import Landing from "../components/landing";
 import Card from "../components/card";
 import Burger from "../components/svgs/burger";
 import Close from "../components/svgs/close";
 import Translations from "../components/translations";
-import Airtable from "airtable";
-import Head from "next/head";
 
 function IndexPage({ adhkar }) {
   // Menu opener state
@@ -30,7 +30,12 @@ function IndexPage({ adhkar }) {
   );
 
   const drawer = (
-    <div className="fixed inset-y-0 right-0 flow space-y-6 px-2 bg-white w-5/6 md:w-3/6 lg:w-2/6 xl:w-1/6">
+    <div
+      className={
+        "fixed inset-y-0 right-0 flow space-y-6 px-2 bg-white w-5/6 md:w-3/6 lg:w-2/6 xl:w-1/6 overflow-auto transform ease-in-out transition-all duration-300 z-20" +
+        (toggle ? " translate-x-0" : " translate-x-full")
+      }
+    >
       <nav className="flow-root">
         <button
           className="float-right pt-4"
@@ -61,7 +66,7 @@ TODO:
         <title>Dhikr.life</title>
         {/* <meta name="viewport" content="initial-scale=1.0, width=device-width" /> */}
       </Head>
-      <div className="px-2 h-screen w-screen">
+      <div className="px-2 h-screen w-screen z-10">
         {/* Navigation drawer */}
         <nav className="flow-root">
           <button
@@ -73,7 +78,7 @@ TODO:
             <Burger />
           </button>
         </nav>
-        {toggle ? drawer : ""}
+        {drawer}
         {/* landing screen */}
         {/* Card components */}
         <Card adhkar={adhkar} />
