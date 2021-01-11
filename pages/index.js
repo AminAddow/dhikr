@@ -112,7 +112,7 @@ function IndexPage({ adhkar }) {
         {drawer}
         {/* landing screen */}
         {/* Card components */}
-        <Card adhkar={adhkar} />
+        <Card selectedTranslations={states} content={adhkar} />
       </div>
     </div>
   );

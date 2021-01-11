@@ -1,4 +1,16 @@
-export default function card({ adhkar }) {
+export default function card(props) {
+  const selected = props.selectedTranslations;
+  const adhkar = props.content;
+
+  const English = (props) => {
+    return (
+      <div className="">
+        <h1 className="text-lg font-semibold">English</h1>
+        <p className="">{props.content}</p>
+      </div>
+    );
+  };
+
   return (
     <div className="mt-24 space-y-24 md:w-3/4 md:mx-auto lg:w-1/2 xl:w-1/3">
       {adhkar.map((dhikr) => (
@@ -19,9 +31,12 @@ export default function card({ adhkar }) {
             <p className="ml-4 mt-1 text-sm">{dhikr.source}</p>
           </div>
           <br />
-          <div>
-            <h2>English</h2>
-            <p>{dhikr.translation_eng}</p>
+          <div className="row-start-4 px-4">
+            {selected.showEnglish ? (
+              <English content={dhikr.translation_eng} />
+            ) : (
+              ""
+            )}
           </div>
         </div>
       ))}
