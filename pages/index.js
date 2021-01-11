@@ -1,16 +1,51 @@
 import { useState } from "react";
 import Head from "next/head";
 import Airtable from "airtable";
-import Adhkar from "../components/adhkar";
 import Landing from "../components/landing";
 import Card from "../components/card";
 import Burger from "../components/svgs/burger";
 import Close from "../components/svgs/close";
-import Translations from "../components/translations";
+import TranslationsMenu from "../components/translationsmenu";
 
 function IndexPage({ adhkar }) {
   // Menu opener state
   const [toggle, setToggle] = useState(false);
+
+  // Translation states
+  const [english, setEnglish] = useState(true);
+  const [french, setFrench] = useState(false);
+  const [norwegian, setNorwegian] = useState(false);
+
+  // State object for easy handling to childComp
+  var states = {
+    showEnglish: english,
+    showFrench: french,
+    showNorwegian: norwegian,
+  };
+
+  // Translation selection handler
+  const handleTranslationChange = (event) => {
+    console.log(event.target.name);
+    console.log(event.target.checked);
+
+    let lang = event.target.name;
+    let state = event.target.checked;
+
+    switch (lang) {
+      case "english":
+        setEnglish(state);
+        // console.log("Selected", event.target.name, "is set to", { english });
+        break;
+      case "french":
+        setFrench(state);
+        // console.log("Selected", event.target.name, "is set to", { french });
+        break;
+      case "norwegian":
+        setNorwegian(state);
+        // console.log("Selected", event.target.name, "is set to", { norwegian });
+        break;
+    }
+  };
 
   const check = (
     <svg
@@ -47,17 +82,13 @@ function IndexPage({ adhkar }) {
         </button>
       </nav>
       <div className="space-y-2">
-        <Translations />
+        <TranslationsMenu
+          selectedTranslations={states}
+          onChange={(event) => handleTranslationChange(event)}
+        />
       </div>
     </div>
   );
-
-  /* 
-TODO:
-[x] - Move card component to own seperate file
-[x] - Make drawer take whole screen height
-
-*/
 
   return (
     // full app
@@ -109,14 +140,15 @@ export async function getStaticProps() {
     })
     .all();
 
-  const adhkar = records.map((product) => {
+  const adhkar = records.map((api) => {
     return {
-      key_id: product.get("key_id"),
-      dhikr_id: product.get("dhikr_id"),
-      time_of_day: product.get("time_of_day"),
-      arabic_text: product.get("arabic_text"),
-      read_amount_int: product.get("read_amount_int"),
-      source: product.get("source"),
+      key_id: api.get("key_id"),
+      dhikr_id: api.get("dhikr_id"),
+      time_of_day: api.get("time_of_day"),
+      arabic_text: api.get("arabic_text"),
+      read_amount_int: api.get("read_amount_int"),
+      source: api.get("source"),
+      translation_eng: api.get("translation_eng"),
     };
   });
 

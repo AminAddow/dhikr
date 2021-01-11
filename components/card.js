@@ -1,14 +1,4 @@
 export default function card({ adhkar }) {
-  {
-    /* <div className="">
-      {adhkar.map((dhikr) => (
-        <ul>
-          <adhkar adhkar={dhikr} />
-        </ul>
-      ))}
-    </div> */
-  }
-
   return (
     <div className="mt-24 space-y-24 md:w-3/4 md:mx-auto lg:w-1/2 xl:w-1/3">
       {adhkar.map((dhikr) => (
@@ -27,6 +17,11 @@ export default function card({ adhkar }) {
           </div>
           <div className="row-start-3 col-span-full">
             <p className="ml-4 mt-1 text-sm">{dhikr.source}</p>
+          </div>
+          <br />
+          <div>
+            <h2>English</h2>
+            <p>{dhikr.translation_eng}</p>
           </div>
         </div>
       ))}
