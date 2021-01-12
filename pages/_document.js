@@ -16,6 +16,10 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap"
             rel="stylesheet"
           />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Scheherazade&display=swap"
+            rel="stylesheet"
+          />
         </Head>
         <body className="font-playfair">
           <Main />
