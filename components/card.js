@@ -4,8 +4,29 @@ export default function card(props) {
 
   const English = (props) => {
     return (
-      <div className="">
+      <div className="px-4">
+        <hr className="my-4 w-1/3 mx-auto" />
         <h1 className="text-lg font-semibold">English</h1>
+        <p className="">{props.content}</p>
+      </div>
+    );
+  };
+
+  const French = (props) => {
+    return (
+      <div className="px-4">
+        <hr className="my-4 w-1/3 mx-auto" />
+        <h1 className="text-lg font-semibold">Français</h1>
+        <p className="">{props.content}</p>
+      </div>
+    );
+  };
+
+  const Norwegian = (props) => {
+    return (
+      <div className="px-4">
+        <hr className="my-4 w-1/3 mx-auto" />
+        <h1 className="text-lg font-semibold">Norsk</h1>
         <p className="">{props.content}</p>
       </div>
     );
@@ -27,16 +48,19 @@ export default function card(props) {
           <div className="row-start-2 px-4">
             <p className="text-4xl rtl font-arabic">{dhikr.arabic_text}</p>
           </div>
-          <div className="row-start-3 col-span-full">
+          {selected.showEnglish ? (
+            <English content={dhikr.translation_eng} />
+          ) : (
+            ""
+          )}
+          {selected.showFrench ? <French content={dhikr.translation_fr} /> : ""}
+          {selected.showNorwegian ? (
+            <Norwegian content={dhikr.translation_nor} />
+          ) : (
+            ""
+          )}
+          <div className="col-span-full">
             <p className="ml-4 mt-1 text-sm">{dhikr.source}</p>
-          </div>
-          <br />
-          <div className="row-start-4 px-4">
-            {selected.showEnglish ? (
-              <English content={dhikr.translation_eng} />
-            ) : (
-              ""
-            )}
           </div>
         </div>
       ))}
