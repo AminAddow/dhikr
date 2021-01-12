@@ -1,15 +1,51 @@
 import { useState } from "react";
-import Adhkar from "../components/adhkar";
+import Head from "next/head";
+import Airtable from "airtable";
 import Landing from "../components/landing";
+import Card from "../components/card";
 import Burger from "../components/svgs/burger";
 import Close from "../components/svgs/close";
-import Translations from "../components/translations";
-import Airtable from "airtable";
-import Head from "next/head";
+import TranslationsMenu from "../components/translationsmenu";
 
 function IndexPage({ adhkar }) {
   // Menu opener state
   const [toggle, setToggle] = useState(false);
+
+  // Translation states
+  const [english, setEnglish] = useState(true);
+  const [french, setFrench] = useState(false);
+  const [norwegian, setNorwegian] = useState(false);
+
+  // State object for easy handling to childComp
+  var states = {
+    showEnglish: english,
+    showFrench: french,
+    showNorwegian: norwegian,
+  };
+
+  // Translation selection handler
+  const handleTranslationChange = (event) => {
+    console.log(event.target.name);
+    console.log(event.target.checked);
+
+    let lang = event.target.name;
+    let state = event.target.checked;
+
+    switch (lang) {
+      case "english":
+        setEnglish(state);
+        // console.log("Selected", event.target.name, "is set to", { english });
+        break;
+      case "french":
+        setFrench(state);
+        // console.log("Selected", event.target.name, "is set to", { french });
+        break;
+      case "norwegian":
+        setNorwegian(state);
+        // console.log("Selected", event.target.name, "is set to", { norwegian });
+        break;
+    }
+  };
 
   const check = (
     <svg
@@ -29,8 +65,13 @@ function IndexPage({ adhkar }) {
   );
 
   const drawer = (
-    <div className="absolute inset-y-0 right-0 grid grid-cols-5 grid-rows-24 gap-6 px-4 bg-white w-5/6 md:w-3/6 lg:w-2/6 xl:w-1/6">
-      <nav className="col-span-1 col-end-7 row-span-2 row-start-1">
+    <div
+      className={
+        "fixed inset-y-0 right-0 flow space-y-6 px-2 bg-white w-5/6 md:w-3/6 lg:w-2/6 xl:w-1/6 overflow-auto transform ease-in-out transition-all duration-300 z-20" +
+        (toggle ? " translate-x-0" : " translate-x-full")
+      }
+    >
+      <nav className="flow-root">
         <button
           className="float-right pt-4"
           onClick={() => {
@@ -40,15 +81,21 @@ function IndexPage({ adhkar }) {
           <Close />
         </button>
       </nav>
-      <Translations />
+      <div className="space-y-2">
+        <TranslationsMenu
+          selectedTranslations={states}
+          onChange={(event) => handleTranslationChange(event)}
+        />
+      </div>
     </div>
   );
 
   return (
     // full app
-    <div className="container font-playfair ">
+    <div className="container mx-auto">
       <Head>
         <title>Dhikr.life</title>
+
         <meta charSet="utf-8" />
         <meta
           name="Description"
@@ -64,9 +111,9 @@ function IndexPage({ adhkar }) {
           content="black-translucent"
         />
       </Head>
-      <div className="grid grid-cols-6 grid-rows-24 gap-4 px-2 h-screen w-screen bg-blue-500">
+      <div className="px-2 h-screen w-screen z-10">
         {/* Navigation drawer */}
-        <nav className="col-span-1 col-end-7 row-span-2 row-start-1">
+        <nav className="flow-root">
           <button
             className="float-right pt-4"
             onClick={() => {
@@ -76,34 +123,10 @@ function IndexPage({ adhkar }) {
             <Burger />
           </button>
         </nav>
-        {toggle ? drawer : ""}
+        {drawer}
         {/* landing screen */}
-        {/* card components */}
-        <div className="col-span-6 row-start-5 mx-2 md:w-3/4 md:mx-auto lg:w-3/4">
-          <div className="grid grid-rows-max grid-cols-max gap-6 py-2 bg-gray-100 rounded-xl">
-            <div className="row-start-1 col-span-full">
-              <p className="ml-4 mt-1 text-sm font-semibold">
-                Read <span>{adhkar[0].read_amount_int} </span>
-                {adhkar[0].read_amount_int > 1 ? "times" : "time"}
-              </p>
-            </div>
-            <div className="row-start-2 px-4">
-              <p className="text-4xl rtl font-arabic">
-                {adhkar[0].arabic_text}
-              </p>
-            </div>
-            <div className="row-start-3 col-span-full">
-              <p className="ml-4 mt-1 text-sm">{adhkar[0].source}</p>
-            </div>
-          </div>
-        </div>
-        {/* <div className="">
-            {adhkar.map((dhikr) => (
-              <ul>
-                <Adhkar data={dhikr} />
-              </ul>
-            ))}
-          </div> */}
+        {/* Card components */}
+        <Card selectedTranslations={states} content={adhkar} />
       </div>
     </div>
   );
@@ -120,25 +143,40 @@ export async function getStaticProps() {
       fields: [
         "key_id",
         "dhikr_id",
+        "time_of_day",
         "arabic_text",
         "read_amount_int",
-        "time_of_day",
         "source",
+        "transliteration",
+        "transliteration_source",
         "translation_eng",
+        "translation_eng_source",
+        "translation_nor",
+        "translation_nor_source",
+        "translation_fr",
+        "translation_fr_source",
       ],
       sort: [{ field: "key_id", direction: "asc" }],
-      maxRecords: 1,
+      maxRecords: 5,
     })
     .all();
 
-  const adhkar = records.map((product) => {
+  const adhkar = records.map((api) => {
     return {
-      key_id: product.get("key_id"),
-      dhikr_id: product.get("dhikr_id"),
-      time_of_day: product.get("time_of_day"),
-      arabic_text: product.get("arabic_text"),
-      read_amount_int: product.get("read_amount_int"),
-      source: product.get("source"),
+      key_id: api.get("key_id"),
+      dhikr_id: api.get("dhikr_id"),
+      time_of_day: api.get("time_of_day"),
+      arabic_text: api.get("arabic_text"),
+      read_amount_int: api.get("read_amount_int"),
+      source: api.get("source"),
+      transliteration: api.get("transliteration"),
+      transliteration_source: api.get("transliteration_source"),
+      translation_eng: api.get("translation_eng"),
+      translation_eng_source: api.get("translation_eng_source"),
+      translation_nor: api.get("translation_nor"),
+      translation_nor_source: api.get("translation_nor_source"),
+      translation_fr: api.get("translation_fr"),
+      translation_fr_source: api.get("translation_fr_source"),
     };
   });
 
