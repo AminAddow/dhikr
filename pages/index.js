@@ -67,7 +67,7 @@ function IndexPage({ adhkar }) {
   const drawer = (
     <div
       className={
-        "fixed inset-y-0 right-0 flow space-y-6 px-2 bg-white w-5/6 md:w-3/6 lg:w-2/6 xl:w-1/6 overflow-auto transform ease-in-out transition-all duration-300 z-20" +
+        "fixed inset-y-0 right-0 flow space-y-6 bg-white w-5/6 md:w-3/6 lg:w-2/6 xl:w-1/6 transform ease-in-out transition-all duration-300" +
         (toggle ? " translate-x-0" : " translate-x-full")
       }
     >
@@ -92,7 +92,8 @@ function IndexPage({ adhkar }) {
 
   return (
     // full app
-    <div className="container mx-auto">
+    // Add overflow-x-hidden below
+    <div className="container mx-auto overflow-x-hidden">
       <Head>
         <title>Dhikr.life</title>
 
@@ -111,9 +112,9 @@ function IndexPage({ adhkar }) {
           content="black-translucent"
         />
       </Head>
-      <div className="px-2 h-screen w-screen z-10">
+      <div className="h-screen w-screen">
         {/* Navigation drawer */}
-        <nav className="flow-root">
+        <nav className="flow-root overflow-hidden">
           <button
             className="float-right pt-4"
             onClick={() => {
