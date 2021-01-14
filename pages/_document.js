@@ -7,12 +7,11 @@ class MyDocument extends Document {
         <Head>
           <link
             rel="preload"
-            href="/fonts/Scheherazade/Scheherazade-Regular.ttf"
+            href="/fonts/Uthmanic/KFGQPC.otf"
             as="font"
-            crossOrigin=""
           />
             <link rel="preconnect" href="https://fonts.gstatic.com" />
-            <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Mirza&display=swap" rel="stylesheet" />
+            <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Mirza&family=Scheherazade&display=swap" rel="stylesheet" />
         </Head>
         <body className="font-libre">
           <Main />

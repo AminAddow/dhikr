@@ -17,11 +17,11 @@
     @apply bg-gray-10;
   }
 
-  /* @font-face {
-    font-family: "Scheherazade";
-    src: url("/fonts/Scheherazade/Scheherazade-Regular.ttf");
+  @font-face {
+    font-family: "Uthmanic";
+    src: url("/fonts/Uthmanic/KFGQPC.otf");
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-  } */
+  }
 }

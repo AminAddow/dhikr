@@ -11,7 +11,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      arabic: ["Scheherazade", "Mirza"],
+      arabic: ["Scheherazade", "Uthmanic"],
       libre: ["Libre Baskerville", "serif"],
     },
   },
