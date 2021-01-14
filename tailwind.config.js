@@ -11,8 +11,8 @@ module.exports = {
       },
     },
     fontFamily: {
-      arabic: "Scheherazade",
-      playfair: "Playfair Display",
+      arabic: ["Scheherazade", "Mirza"],
+      libre: ["Libre Baskerville", "serif"],
     },
   },
   extend: {

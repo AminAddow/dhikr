@@ -11,17 +11,10 @@ class MyDocument extends Document {
             as="font"
             crossOrigin=""
           />
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap"
-            rel="stylesheet"
-          />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Scheherazade&display=swap"
-            rel="stylesheet"
-          />
+            <link rel="preconnect" href="https://fonts.gstatic.com" />
+            <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Mirza&display=swap" rel="stylesheet" />
         </Head>
-        <body className="font-playfair">
+        <body className="font-libre">
           <Main />
           <NextScript />
         </body>
