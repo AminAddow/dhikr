@@ -9,10 +9,10 @@ import TranslationsMenu from "../components/translationsmenu";
 
 function IndexPage({ adhkar }) {
   // Menu opener state
-  const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState(true);
 
   // Translation states
-  const [english, setEnglish] = useState(true);
+  const [english, setEnglish] = useState(false);
   const [french, setFrench] = useState(false);
   const [norwegian, setNorwegian] = useState(false);
 
@@ -25,9 +25,6 @@ function IndexPage({ adhkar }) {
 
   // Translation selection handler
   const handleTranslationChange = (event) => {
-    console.log(event.target.name);
-    console.log(event.target.checked);
-
     let lang = event.target.name;
     let state = event.target.checked;
 
@@ -47,27 +44,27 @@ function IndexPage({ adhkar }) {
     }
   };
 
-  const check = (
-    <svg
-      className="w-5 h-5"
-      fill="none"
-      stroke="#fff"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M5 13l4 4L19 7"
-      />
-    </svg>
-  );
+  // const check = (
+  //   <svg
+  //     className="w-5 h-5"
+  //     fill="none"
+  //     stroke="#fff"
+  //     viewBox="0 0 24 24"
+  //     xmlns="http://www.w3.org/2000/svg"
+  //   >
+  //     <path
+  //       strokeLinecap="round"
+  //       strokeLinejoin="round"
+  //       strokeWidth={2}
+  //       d="M5 13l4 4L19 7"
+  //     />
+  //   </svg>
+  // );
 
   const drawer = (
     <div
       className={
-        "fixed inset-y-0 right-0 flow space-y-6 bg-white w-5/6 md:w-3/6 lg:w-2/6 xl:w-1/6 transform ease-in-out transition-all duration-300" +
+        "fixed inset-y-0 right-0 flow space-y-6 bg-white w-5/6 md:w-3/6 lg:w-2/6 transform ease-in-out transition-all duration-300" +
         (toggle ? " translate-x-0" : " translate-x-full")
       }
     >
@@ -93,9 +90,9 @@ function IndexPage({ adhkar }) {
   return (
     // full app
     // Add overflow-x-hidden below
-    <div className="container mx-auto overflow-x-hidden">
+    <div className="mx-auto w-full">
       <Head>
-        <title>Dhikr.life</title>
+        <title>Adhkar - Dhikr.life</title>
 
         <meta charSet="utf-8" />
         <meta
@@ -112,23 +109,21 @@ function IndexPage({ adhkar }) {
           content="black-translucent"
         />
       </Head>
-      <div className="h-screen w-screen">
-        {/* Navigation drawer */}
-        <nav className="flow-root overflow-hidden">
-          <button
-            className="float-right pt-4"
-            onClick={() => {
-              setToggle(true);
-            }}
-          >
-            <Burger />
-          </button>
-        </nav>
-        {drawer}
-        {/* landing screen */}
-        {/* Card components */}
-        <Card selectedTranslations={states} content={adhkar} />
-      </div>
+      {/* Navigation drawer */}
+      <nav className="flow-root">
+        <button
+          className="pt-4 float-right"
+          onClick={() => {
+            setToggle(true);
+          }}
+        >
+          <Burger />
+        </button>
+      </nav>
+      {drawer}
+      {/* landing screen */}
+      {/* Card components */}
+      <Card selectedTranslations={states} content={adhkar} />
     </div>
   );
 }

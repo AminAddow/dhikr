@@ -9,7 +9,7 @@
 /* If in need of different SVG sizes at different viewpoints. Add below */
 /* Checkbox in menu style */
 .btn-check {
-  @apply form-checkbox appearance-none border-black border-solid border-2 rounded-md text-green-500 checked:border-green-700 checked:border-transparent;
+  @apply form-checkbox appearance-none border-black border-solid border-2 rounded-md text-gray-1000 checked:border-transparent;
 }
 
 @layer base {

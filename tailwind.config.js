@@ -7,6 +7,10 @@ module.exports = {
         },
         gray: {
           10: "#C8D0D0",
+          1000: "#292929",
+        },
+        green: {
+          10: "#E3E6DA",
         },
       },
     },
@@ -89,6 +93,7 @@ module.exports = {
       backgroundColor: ["active"],
     },
   },
+
   plugins: [require("@tailwindcss/custom-forms")],
   purge: ["./components/**/*.{js,ts,jsx,tsx}", "./pages/**/*.{js,ts,jsx,tsx}"],
 };

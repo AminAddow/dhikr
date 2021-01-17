@@ -33,15 +33,15 @@ export default function card(props) {
   };
 
   return (
-    <div className="mt-24 space-y-24 md:w-3/4 md:mx-auto lg:w-1/2 xl:w-1/3">
+    <div className="mx-auto px-2 mt-24 space-y-24 md:w-3/4 lg:w-1/2">
       {adhkar.map((dhikr) => (
         <div
+          className="grid grid-rows-max grid-cols-max shadow-lg gap-6 py-2 bg-yellow-10 rounded-xl"
           key={dhikr.dhikr_id}
-          className="grid grid-rows-max grid-cols-max gap-6 py-2 bg-yellow-10 rounded-xl"
         >
           <div className="row-start-1 col-span-full">
             <p className="ml-4 mt-1 text-sm font-semibold">
-              Read <span>{dhikr.read_amount_int} </span>
+              Read<span> {dhikr.read_amount_int} </span>
               {dhikr.read_amount_int > 1 ? "times" : "time"}
             </p>
           </div>
