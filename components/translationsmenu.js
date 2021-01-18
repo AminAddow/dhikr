@@ -19,11 +19,11 @@ export default function translationMenu(props) {
             (selectedEnglish ? " bg-green-10 font-bold" : "")
           }
         >
-          <label className="flex items-center text-3xl h-full w-full">
+          <label className="flex items-center text-3xl h-full w-full select-none	">
             <div className="flex items-center justify-center mr-4 w-12 h-full">
               <input
                 type="checkbox"
-                className="btn-check text-2xl"
+                className="btn-check text-3xl"
                 name="english"
                 onChange={(event) => props.onChange(event)}
                 checked={selectedEnglish || ""}
@@ -38,11 +38,11 @@ export default function translationMenu(props) {
             (selectedFrench ? " bg-green-10 font-bold" : "")
           }
         >
-          <label className="flex items-center text-3xl h-full w-full">
+          <label className="flex items-center text-3xl h-full w-full select-none	">
             <div className="flex items-center justify-center mr-4 w-12 h-full">
               <input
                 type="checkbox"
-                className="btn-check text-2xl"
+                className="btn-check text-3xl"
                 name="french"
                 onChange={(event) => props.onChange(event)}
                 checked={selectedFrench || ""}
@@ -57,11 +57,11 @@ export default function translationMenu(props) {
             (selectedNorwegian ? " bg-green-10 font-bold" : "")
           }
         >
-          <label className="flex items-center text-3xl h-full w-full">
+          <label className="flex items-center text-3xl h-full w-full select-none	">
             <div className="flex items-center justify-center mr-4 w-12 h-full">
               <input
                 type="checkbox"
-                className="btn-check text-2xl"
+                className="btn-check text-3xl"
                 name="norwegian"
                 onChange={(event) => props.onChange(event)}
                 checked={selectedNorwegian || ""}

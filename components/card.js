@@ -37,7 +37,7 @@ export default function card(props) {
       {adhkar.map((dhikr) => (
         <div
           className="grid grid-rows-max grid-cols-max shadow-lg gap-6 py-2 bg-yellow-10 rounded-xl"
-          key={dhikr.dhikr_id}
+          key={dhikr.key_id}
         >
           <div className="row-start-1 col-span-full">
             <p className="ml-4 mt-1 text-sm font-semibold">

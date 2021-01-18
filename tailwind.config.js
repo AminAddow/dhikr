@@ -93,6 +93,10 @@ module.exports = {
       backgroundColor: ["active"],
     },
   },
+  corePlugins: {
+    // ...
+    outline: false,
+  },
 
   plugins: [require("@tailwindcss/custom-forms")],
   purge: ["./components/**/*.{js,ts,jsx,tsx}", "./pages/**/*.{js,ts,jsx,tsx}"],
