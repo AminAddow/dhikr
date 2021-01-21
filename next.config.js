@@ -9,21 +9,21 @@ module.exports = {
     AIRTABLE_KEY: process.env.AIRTABLE_KEY,
   },
 
-  webpack: (config) => {
-    module: {
-    	rules: [
-    	  {
-    		test: /\.css$/i,
-    		use: [
-    		  "style-loader",
-    		  "css-loader",
-    		  {
-    			loader: "postcss-loader",
-    		  },
-    		],
-    	  },
-    	],
-    },
-    return config;
-    },
+  // webpack: (config) => {
+  //   module: {
+  //   	rules: [
+  //   	  {
+  //   		test: /\.css$/i,
+  //   		use: [
+  //   		  "style-loader",
+  //   		  "css-loader",
+  //   		  {
+  //   			loader: "postcss-loader",
+  //   		  },
+  //   		],
+  //   	  },
+  //   	],
+  //   },
+  //   return config
+  //   },
 };
