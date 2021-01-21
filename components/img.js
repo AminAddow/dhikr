@@ -5,7 +5,7 @@ export default function Img(props) {
   return (
     <div className="block">
       <div className="flex justify-center h-100 w-100">
-        <Image
+        <img
           src="/img/logo.png"
           alt="Dhikr life logo"
           layout="intrinsic"
