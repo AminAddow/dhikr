@@ -2,17 +2,37 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        lightgreen: {
+          primary: "#C0CFB2",
+          secondary: "#E3E6DA",
+        },
+        darkgreen: {
+          primary: "#5E756D",
+          secondary: "#B2BFB6",
+        },
+        pink: {
+          primary: "#D3C3C3",
+          secondary: "#FDEEEB",
+        },
+        dark: {
+          primary: "#121212",
+          secondary: "#292929",
+        },
         yellow: {
           10: "#fffbf0",
         },
         gray: {
           10: "#C8D0D0",
+          1000: "#292929",
+        },
+        green: {
+          10: "#E3E6DA",
         },
       },
     },
     fontFamily: {
-      arabic: "Scheherazade",
-      playfair: "Playfair Display",
+      arabic: ["Scheherazade", "Uthmanic"],
+      libre: ["Libre Baskerville", "serif"],
     },
   },
   extend: {
@@ -89,6 +109,7 @@ module.exports = {
       backgroundColor: ["active"],
     },
   },
+
   plugins: [require("@tailwindcss/custom-forms")],
   purge: ["./components/**/*.{js,ts,jsx,tsx}", "./pages/**/*.{js,ts,jsx,tsx}"],
 };

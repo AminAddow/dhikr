@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Head from "next/head";
 import Airtable from "airtable";
-import Landing from "../components/landing";
+import ProgressBar from "../components/progressbar";
+import Img from "../components/img";
+import SelectTime from "../components/selecttime";
 import Card from "../components/card";
 import Burger from "../components/svgs/burger";
 import Close from "../components/svgs/close";
@@ -12,9 +14,12 @@ function IndexPage({ adhkar }) {
   const [toggle, setToggle] = useState(false);
 
   // Translation states
-  const [english, setEnglish] = useState(true);
+  const [english, setEnglish] = useState(false);
   const [french, setFrench] = useState(false);
   const [norwegian, setNorwegian] = useState(false);
+
+  // Button state
+  const [enabled, setEnabled] = useState(true);
 
   // State object for easy handling to childComp
   var states = {
@@ -25,9 +30,6 @@ function IndexPage({ adhkar }) {
 
   // Translation selection handler
   const handleTranslationChange = (event) => {
-    console.log(event.target.name);
-    console.log(event.target.checked);
-
     let lang = event.target.name;
     let state = event.target.checked;
 
@@ -47,33 +49,27 @@ function IndexPage({ adhkar }) {
     }
   };
 
-  const check = (
-    <svg
-      className="w-5 h-5"
-      fill="none"
-      stroke="#fff"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M5 13l4 4L19 7"
-      />
-    </svg>
-  );
+  // Anon function that selects morning or evening based upon user selection
+  (() => {
+    var time;
+    if (enabled === true) {
+      time = "evening";
+    } else {
+      time = "morning";
+    }
+    var time = (adhkar = adhkar.filter((dhikr) => dhikr.time_of_day === time));
+  })();
 
   const drawer = (
     <div
       className={
-        "fixed inset-y-0 right-0 flow space-y-6 px-2 bg-white w-5/6 md:w-3/6 lg:w-2/6 xl:w-1/6 overflow-auto transform ease-in-out transition-all duration-300 z-20" +
+        "z-50 fixed inset-y-0 right-0 flow space-y-6 bg-white w-5/6 md:w-3/6 lg:w-2/6 transform ease-in-out transition-all duration-300" +
         (toggle ? " translate-x-0" : " translate-x-full")
       }
     >
       <nav className="flow-root">
         <button
-          className="float-right pt-4"
+          className="float-right pt-2 pr-2"
           onClick={() => {
             setToggle(false);
           }}
@@ -81,22 +77,21 @@ function IndexPage({ adhkar }) {
           <Close />
         </button>
       </nav>
-      <div className="space-y-2">
-        <TranslationsMenu
-          selectedTranslations={states}
-          onChange={(event) => handleTranslationChange(event)}
-        />
-      </div>
+      <TranslationsMenu
+        selectedTranslations={states}
+        onChange={(event) => handleTranslationChange(event)}
+      />
     </div>
   );
 
   return (
     // full app
-    <div className="container mx-auto">
+    // Add overflow-x-hidden below
+    <div className="mx-auto w-full bg-lightgreen-primary">
       <Head>
-        <title>Dhikr.life</title>
+        <title>Adhkar - Dhikr.life</title>
 
-        <meta charSet="utf-8" />
+        <meta charSet="UTF-8" />
         <meta
           name="Description"
           content="Dhikr.life, Adhkar morning and evening, Dhikr, Supplications in islam, Sunnah adhkar, Adhkar Salafi"
@@ -111,23 +106,23 @@ function IndexPage({ adhkar }) {
           content="black-translucent"
         />
       </Head>
-      <div className="px-2 h-screen w-screen z-10">
-        {/* Navigation drawer */}
-        <nav className="flow-root">
-          <button
-            className="float-right pt-4"
-            onClick={() => {
-              setToggle(true);
-            }}
-          >
-            <Burger />
-          </button>
-        </nav>
-        {drawer}
-        {/* landing screen */}
-        {/* Card components */}
-        <Card selectedTranslations={states} content={adhkar} />
-      </div>
+      {/* Navigation drawer */}
+      <nav className="flow-root">
+        <button
+          className="pt-2 pr-2 float-right"
+          onClick={() => {
+            setToggle(true);
+          }}
+        >
+          <Burger />
+        </button>
+      </nav>
+      {drawer}
+      {/* landing screen */}
+      <Img />
+      <SelectTime state={enabled} onChange={() => setEnabled(!enabled)} />
+      {/* Card components */}
+      <Card selectedTranslations={states} content={adhkar} />
     </div>
   );
 }
@@ -145,6 +140,7 @@ export async function getStaticProps() {
         "dhikr_id",
         "time_of_day",
         "arabic_text",
+        "read_amount_text",
         "read_amount_int",
         "source",
         "transliteration",
@@ -157,7 +153,6 @@ export async function getStaticProps() {
         "translation_fr_source",
       ],
       sort: [{ field: "key_id", direction: "asc" }],
-      maxRecords: 5,
     })
     .all();
 
@@ -167,6 +162,7 @@ export async function getStaticProps() {
       dhikr_id: api.get("dhikr_id"),
       time_of_day: api.get("time_of_day"),
       arabic_text: api.get("arabic_text"),
+      read_amount_text: api.get("read_amount_text"),
       read_amount_int: api.get("read_amount_int"),
       source: api.get("source"),
       transliteration: api.get("transliteration"),
