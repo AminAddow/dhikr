@@ -2,6 +2,22 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        lightgreen: {
+          primary: "#C0CFB2",
+          secondary: "#E3E6DA",
+        },
+        darkgreen: {
+          primary: "#5E756D",
+          secondary: "#B2BFB6",
+        },
+        pink: {
+          primary: "#D3C3C3",
+          secondary: "#FDEEEB",
+        },
+        dark: {
+          primary: "#121212",
+          secondary: "#292929",
+        },
         yellow: {
           10: "#fffbf0",
         },

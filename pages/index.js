@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Head from "next/head";
 import Airtable from "airtable";
 import ProgressBar from "../components/progressbar";
@@ -87,7 +87,7 @@ function IndexPage({ adhkar }) {
   return (
     // full app
     // Add overflow-x-hidden below
-    <div className="mx-auto w-full">
+    <div className="mx-auto w-full bg-lightgreen-primary">
       <Head>
         <title>Adhkar - Dhikr.life</title>
 

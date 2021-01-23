@@ -12,9 +12,9 @@
 }
 
 @layer base {
-  body {
+  /* body {
     @apply bg-gray-10;
-  }
+  } */
 
   @font-face {
     font-family: "Uthmanic";
