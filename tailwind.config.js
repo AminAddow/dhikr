@@ -1,6 +1,18 @@
 module.exports = {
   plugins: [require("@tailwindcss/custom-forms")],
   purge: ["./components/**/*.{js,ts,jsx,tsx}", "./pages/**/*.{js,ts,jsx,tsx}"],
+  options: {
+    safelist: [
+      "bg-lightgreen-primary",
+      "bg-lightgreen-secondary",
+      "bg-darkgreen-primary",
+      "bg-darkgreen-secondary",
+      "bg-pop-primary",
+      "bg-pop-secondary",
+      "bg-dark-primary",
+      "bg-dark-secondary",
+    ],
+  },
   theme: {
     fontFamily: {
       arabic: ["Scheherazade", "Uthmanic"],

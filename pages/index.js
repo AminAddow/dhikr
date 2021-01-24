@@ -15,11 +15,6 @@ function IndexPage({ adhkar }) {
   // Theme state
   const [theme, setTheme] = useState("pink");
 
-  var color = {
-    primary: `bg-${theme}-primary`,
-    secondary: `bg-${theme}-secondary`,
-  };
-
   // Translation states
   const [english, setEnglish] = useState(false);
   const [french, setFrench] = useState(false);
@@ -76,8 +71,8 @@ function IndexPage({ adhkar }) {
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <div
         className={
-          `mx-auto w-full ${color.primary}` +
-          (theme === "dark" ? " text-white" : " text-black")
+          `mx-auto w-full bg-${theme}-primary ` +
+          (theme === "dark" ? "text-white" : "text-black")
         }
       >
         <Head>
