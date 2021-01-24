@@ -2,7 +2,7 @@ require("dotenv").config();
 
 module.exports = {
   env: {
-    NODE_ENV: "production",
+    NODE_ENV: process.env.ENV,
     API_URL: process.env.API_URL,
     AIRTABLE_KEY: process.env.AIRTABLE_KEY,
   },
