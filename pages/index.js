@@ -65,13 +65,15 @@ function IndexPage({ adhkar }) {
     var time = (adhkar = adhkar.filter((dhikr) => dhikr.time_of_day === time));
   })();
 
+  var color = "bg-lightgreen-primary";
+
   return (
     // full app
     // Add overflow-x-hidden below
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <div
         className={
-          `mx-auto w-full bg-lightgreen-primary ` +
+          `mx-auto w-full ${color} ` +
           (theme === "dark" ? "text-white" : "text-black")
         }
       >
