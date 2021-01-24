@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { ThemeContext } from "../components/themecontext";
+
 export default function card(props) {
   const selected = props.selectedTranslations;
   const adhkar = props.content;
@@ -32,11 +35,14 @@ export default function card(props) {
     );
   };
 
+  const { theme, setTheme } = useContext(ThemeContext);
+  console.log(theme);
+
   return (
     <div className="mx-auto px-2 mt-24 space-y-24 md:w-3/4 lg:w-1/2">
       {adhkar.map((dhikr) => (
         <div
-          className="grid grid-rows-max grid-cols-max shadow-lg gap-6 py-2 bg-yellow-10 rounded-xl"
+          className={`grid grid-rows-max grid-cols-max shadow-lg gap-6 py-2 bg-${theme}-secondary rounded-xl`}
           key={dhikr.key_id}
         >
           <div className="row-start-1 col-span-full">

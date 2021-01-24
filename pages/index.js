@@ -8,6 +8,7 @@ import Card from "../components/card";
 import Burger from "../components/svgs/burger";
 import Close from "../components/svgs/close";
 import TranslationsMenu from "../components/translationsmenu";
+import { ThemeContext } from "../components/themecontext";
 
 function IndexPage({ adhkar }) {
   // Menu opener state
@@ -28,8 +29,34 @@ function IndexPage({ adhkar }) {
     showNorwegian: norwegian,
   };
 
+  // TODO:
+  //  Create reactcontext that changes state based upon state
+  //  Create buttons that change state
+  //  Add margin on all sides of selector span
+
   // Translation selection handler
   const handleTranslationChange = (event) => {
+    let lang = event.target.name;
+    let state = event.target.checked;
+
+    switch (lang) {
+      case "english":
+        setEnglish(state);
+        // console.log("Selected", event.target.name, "is set to", { english });
+        break;
+      case "french":
+        setFrench(state);
+        // console.log("Selected", event.target.name, "is set to", { french });
+        break;
+      case "norwegian":
+        setNorwegian(state);
+        // console.log("Selected", event.target.name, "is set to", { norwegian });
+        break;
+    }
+  };
+
+  // Theme selection handler
+  const handleThemeChange = (event) => {
     let lang = event.target.name;
     let state = event.target.checked;
 
@@ -84,46 +111,52 @@ function IndexPage({ adhkar }) {
     </div>
   );
 
+  const [theme, setTheme] = useState("pink");
+
+  console.log();
+
   return (
     // full app
     // Add overflow-x-hidden below
-    <div className="mx-auto w-full bg-lightgreen-primary">
-      <Head>
-        <title>Adhkar - Dhikr.life</title>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      <div className={`mx-auto w-full bg-${theme}-primary text-base`}>
+        <Head>
+          <title>Adhkar - Dhikr.life</title>
 
-        <meta charSet="UTF-8" />
-        <meta
-          name="Description"
-          content="Dhikr.life, Adhkar morning and evening, Dhikr, Supplications in islam, Sunnah adhkar, Adhkar Salafi"
-        />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-        />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta
-          name="apple-mobile-web-app-status-bar-style"
-          content="black-translucent"
-        />
-      </Head>
-      {/* Navigation drawer */}
-      <nav className="flow-root">
-        <button
-          className="pt-2 pr-2 float-right"
-          onClick={() => {
-            setToggle(true);
-          }}
-        >
-          <Burger />
-        </button>
-      </nav>
-      {drawer}
-      {/* landing screen */}
-      <Img />
-      <SelectTime state={enabled} onChange={() => setEnabled(!enabled)} />
-      {/* Card components */}
-      <Card selectedTranslations={states} content={adhkar} />
-    </div>
+          <meta charSet="UTF-8" />
+          <meta
+            name="Description"
+            content="Dhikr.life, Adhkar morning and evening, Dhikr, Supplications in islam, Sunnah adhkar, Adhkar Salafi"
+          />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+          />
+          <meta name="apple-mobile-web-app-capable" content="yes" />
+          <meta
+            name="apple-mobile-web-app-status-bar-style"
+            content="black-translucent"
+          />
+        </Head>
+        {/* Navigation drawer */}
+        <nav className="flow-root">
+          <button
+            className="pt-2 pr-2 float-right"
+            onClick={() => {
+              setToggle(true);
+            }}
+          >
+            <Burger />
+          </button>
+        </nav>
+        {drawer}
+        {/* landing screen */}
+        <Img />
+        <SelectTime state={enabled} onChange={() => setEnabled(!enabled)} />
+        {/* Card components */}
+        <Card selectedTranslations={states} content={adhkar} />
+      </div>
+    </ThemeContext.Provider>
   );
 }
 
