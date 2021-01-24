@@ -6,6 +6,11 @@ export default function card(props) {
   const adhkar = props.content;
   const { theme, setTheme } = useContext(ThemeContext);
 
+  var color = {
+    primary: "bg-" + theme + "-primary",
+    secondary: "bg-" + theme + "-secondary",
+  };
+
   const English = (props) => {
     return (
       <div className="px-4">
@@ -54,7 +59,7 @@ export default function card(props) {
     <div className="mx-auto px-2 mt-24 space-y-24 md:w-3/4 lg:w-1/2">
       {adhkar.map((dhikr) => (
         <div
-          className={`grid grid-rows-max grid-cols-max shadow-lg gap-6 py-2 bg-${theme}-secondary rounded-xl`}
+          className={`grid grid-rows-max grid-cols-max shadow-lg gap-6 py-2 ${color.secondary} rounded-xl`}
           key={dhikr.key_id}
         >
           <div className="row-start-1 col-span-full">

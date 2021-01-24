@@ -13,7 +13,12 @@ function IndexPage({ adhkar }) {
   const [toggle, setToggle] = useState(true);
 
   // Theme state
-  const [theme, setTheme] = useState("pink");
+  const [theme, setTheme] = useState("lightgreen");
+
+  var color = {
+    primary: "bg-" + theme + "-primary",
+    secondary: "bg-" + theme + "-secondary",
+  };
 
   // Translation states
   const [english, setEnglish] = useState(false);
@@ -65,15 +70,13 @@ function IndexPage({ adhkar }) {
     var time = (adhkar = adhkar.filter((dhikr) => dhikr.time_of_day === time));
   })();
 
-  var color = "bg-lightgreen-primary";
-
   return (
     // full app
     // Add overflow-x-hidden below
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <div
         className={
-          `mx-auto w-full ${color} ` +
+          `mx-auto w-full ${color.primary} ` +
           (theme === "dark" ? "text-white" : "text-black")
         }
       >
