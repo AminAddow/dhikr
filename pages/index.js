@@ -77,7 +77,7 @@ function IndexPage({ adhkar }) {
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <div
         className={
-          `mx-auto w-full ${color.primary} ` +
+          `mx-auto w-full bg-lightgreen-primary ` +
           (theme === "dark" ? "text-white" : "text-black")
         }
       >
