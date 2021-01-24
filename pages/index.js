@@ -1,4 +1,5 @@
 import { useState, useContext } from "react";
+import "tailwindcss/tailwind.css";
 import Head from "next/head";
 import Airtable from "airtable";
 import Menu from "../components/menu";
