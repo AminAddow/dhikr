@@ -27,7 +27,7 @@ export default function translationMenu(props) {
               <div className="flex items-center justify-center mr-4 w-12 h-full">
                 <input
                   type="checkbox"
-                  className="btn-check text-3xl text-black"
+                  className="form-checkbox appearance-none border-solid border-2 border-dark-primary rounded-md text-gray-1000 checked:border-transparent text-3xl text-black"
                   name="english"
                   onChange={(event) => props.onChange(event)}
                   checked={selectedEnglish || ""}
@@ -46,7 +46,7 @@ export default function translationMenu(props) {
               <div className="flex items-center justify-center mr-4 w-12 h-full">
                 <input
                   type="checkbox"
-                  className="btn-check text-3xl"
+                  className="form-checkbox appearance-none border-solid border-2 border-dark-primary rounded-md text-gray-1000 checked:border-transparent text-3xl text-black"
                   name="french"
                   onChange={(event) => props.onChange(event)}
                   checked={selectedFrench || ""}
@@ -65,7 +65,7 @@ export default function translationMenu(props) {
               <div className="flex items-center justify-center mr-4 w-12 h-full">
                 <input
                   type="checkbox"
-                  className="btn-check text-3xl"
+                  className="form-checkbox appearance-none border-solid border-2 border-dark-primary rounded-md text-gray-1000 checked:border-transparent text-3xl text-black"
                   name="norwegian"
                   onChange={(event) => props.onChange(event)}
                   checked={selectedNorwegian || ""}
@@ -96,11 +96,11 @@ export default function translationMenu(props) {
             className="inline-block rounded-full h-12 w-12 bg-gradient-to-br from-darkgreen-primary to-darkfrom-darkgreen-secondary"
           />
           <button
-            name={"pink"}
+            name={"pop"}
             onClick={() => {
-              setTheme("pink");
+              setTheme("pop");
             }}
-            className="inline-block rounded-full h-12 w-12 bg-gradient-to-br from-pink-primary to-pink-secondary"
+            className="inline-block rounded-full h-12 w-12 bg-gradient-to-br from-pop-primary to-pop-secondary"
           />
           <button
             name={"dark"}

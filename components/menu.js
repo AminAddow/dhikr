@@ -13,7 +13,7 @@ export default function menu(props) {
       className={
         "z-50 fixed inset-y-0 right-0 flow space-y-6 bg-white w-5/6 md:w-3/6 lg:w-2/6 transform ease-in-out transition-all duration-300" +
         (toggle ? " translate-x-0 " : " translate-x-full ") +
-        (theme === "dark" ? "bg-dark-secondary" : "bg-white")
+        (theme === "dark" ? "bg-dark-secondary" : "bg-gray-50")
       }
     >
       <nav className="flow-root">

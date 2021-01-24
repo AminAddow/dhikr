@@ -10,7 +10,7 @@ import { ThemeContext } from "../components/themecontext";
 
 function IndexPage({ adhkar }) {
   // Menu opener state
-  const [toggle, setToggle] = useState(true);
+  const [toggle, setToggle] = useState(false);
 
   // Theme state
   const [theme, setTheme] = useState("pink");

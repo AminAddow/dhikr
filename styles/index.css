@@ -6,16 +6,7 @@
   direction: rtl;
 }
 
-/* Checkbox in menu style */
-.btn-check {
-  @apply form-checkbox appearance-none border-black border-solid border-2 rounded-md text-gray-1000 checked:border-transparent;
-}
-
 @layer base {
-  /* body {
-    @apply bg-gray-10;
-  } */
-
   @font-face {
     font-family: "Uthmanic";
     src: url("/fonts/Uthmanic/KFGQPC.otf");
