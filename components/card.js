@@ -4,11 +4,16 @@ import { ThemeContext } from "../components/themecontext";
 export default function card(props) {
   const selected = props.selectedTranslations;
   const adhkar = props.content;
+  const { theme, setTheme } = useContext(ThemeContext);
 
   const English = (props) => {
     return (
       <div className="px-4">
-        <hr className="my-4 w-1/3 mx-auto" />
+        <hr
+          className={
+            `my-4 w-1/3 mx-auto ` + (theme === "dark" ? "bg-white" : "bg-black")
+          }
+        />
         <h1 className="text-lg font-semibold">English</h1>
         <p className="">{props.content}</p>
       </div>
@@ -18,7 +23,12 @@ export default function card(props) {
   const French = (props) => {
     return (
       <div className="px-4">
-        <hr className="my-4 w-1/3 mx-auto" />
+        <hr
+          className={
+            `my-4 w-1/3 mx-auto` +
+            (theme === "dark" ? "text-white" : "text-black")
+          }
+        />
         <h1 className="text-lg font-semibold">Français</h1>
         <p className="">{props.content}</p>
       </div>
@@ -28,15 +38,17 @@ export default function card(props) {
   const Norwegian = (props) => {
     return (
       <div className="px-4">
-        <hr className="my-4 w-1/3 mx-auto" />
+        <hr
+          className={
+            `my-4 w-1/3 mx-auto` +
+            (theme === "dark" ? "text-white" : "text-black")
+          }
+        />
         <h1 className="text-lg font-semibold">Norsk</h1>
         <p className="">{props.content}</p>
       </div>
     );
   };
-
-  const { theme, setTheme } = useContext(ThemeContext);
-  console.log(theme);
 
   return (
     <div className="mx-auto px-2 mt-24 space-y-24 md:w-3/4 lg:w-1/2">
