@@ -93,7 +93,7 @@ export default function translationMenu(props) {
             onClick={() => {
               setTheme("darkgreen");
             }}
-            className="inline-block rounded-full h-12 w-12 bg-gradient-to-br from-darkgreen-primary to-darkfrom-darkgreen-secondary"
+            className="inline-block rounded-full h-12 w-12 bg-gradient-to-br from-darkgreen-primary to-darkgreen-secondary"
           />
           <button
             name={"pop"}

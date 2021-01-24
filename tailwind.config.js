@@ -6,25 +6,27 @@ module.exports = {
       arabic: ["Scheherazade", "Uthmanic"],
       libre: ["Libre Baskerville", "serif"],
     },
-    extend: {
-      colors: {
-        lightgreen: {
-          primary: "#C0CFB2",
-          secondary: "#E3E6DA",
-        },
-        darkgreen: {
-          primary: "#5E756D",
-          secondary: "#B2BFB6",
-        },
-        pop: {
-          primary: "#D3C3C3",
-          secondary: "#FDEEEB",
-        },
-        dark: {
-          primary: "#121212",
-          secondary: "#292929",
-        },
+    colors: {
+      white: "#fff",
+      black: "#000",
+      lightgreen: {
+        primary: "#C0CFB2",
+        secondary: "#E3E6DA",
       },
+      darkgreen: {
+        primary: "#5E756D",
+        secondary: "#B2BFB6",
+      },
+      pop: {
+        primary: "#D3C3C3",
+        secondary: "#FDEEEB",
+      },
+      dark: {
+        primary: "#121212",
+        secondary: "#292929",
+      },
+    },
+    extend: {
       gridTemplateRows: {
         11: "repeat(11, minmax(0, 1fr))",
         12: "repeat(12, minmax(0, 1fr))",
