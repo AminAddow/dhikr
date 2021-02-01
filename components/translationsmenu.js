@@ -82,6 +82,7 @@ export default function translationMenu(props) {
         </div>
         <div className="flex justify-center space-x-4">
           <button
+            aria-label="Light green theme"
             name={"lightgreen"}
             onClick={() => {
               setTheme("lightgreen");
@@ -89,6 +90,7 @@ export default function translationMenu(props) {
             className="inline-block rounded-full h-12 w-12 bg-gradient-to-br from-lightgreen-primary to-lightgreen-secondary"
           />
           <button
+            aria-label="Dark green theme"
             name={"darkgreen"}
             onClick={() => {
               setTheme("darkgreen");
@@ -96,6 +98,7 @@ export default function translationMenu(props) {
             className="inline-block rounded-full h-12 w-12 bg-gradient-to-br from-darkgreen-primary to-darkgreen-secondary"
           />
           <button
+            aria-label="Pink theme"
             name={"pop"}
             onClick={() => {
               setTheme("pop");
@@ -103,6 +106,7 @@ export default function translationMenu(props) {
             className="inline-block rounded-full h-12 w-12 bg-gradient-to-br from-pop-primary to-pop-secondary"
           />
           <button
+            aria-label="Dark theme"
             name={"dark"}
             onClick={() => {
               setTheme("dark");

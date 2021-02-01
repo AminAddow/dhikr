@@ -11,7 +11,7 @@ import { ThemeContext } from "../components/themecontext";
 
 function IndexPage({ adhkar }) {
   // Menu opener state
-  const [toggle, setToggle] = useState(true);
+  const [toggle, setToggle] = useState(false);
 
   // Theme state
   const [theme, setTheme] = useState("lightgreen");
@@ -82,7 +82,7 @@ function IndexPage({ adhkar }) {
         }
       >
         <Head>
-          <title>Adhkar - Dhikr.life</title>
+          <title>Dhikr.life - Adhkar</title>
 
           <meta charSet="UTF-8" />
           <meta

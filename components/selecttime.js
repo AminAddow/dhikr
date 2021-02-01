@@ -42,6 +42,7 @@ export default function SelectTime(props) {
   return (
     <div className="flex justify-center">
       <button
+        aria-label="Select time"
         type="button"
         checked={enabled}
         onClick={() => props.onChange()}

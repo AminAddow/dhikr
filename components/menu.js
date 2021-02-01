@@ -18,6 +18,7 @@ export default function menu(props) {
     >
       <nav className="flow-root">
         <button
+          aria-label="Close menu"
           className="float-right pt-2 pr-2"
           onClick={() => {
             props.onClick();
