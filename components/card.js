@@ -68,8 +68,8 @@ export default function card(props) {
               {dhikr.read_amount_int > 1 ? "times" : "time"}
             </p>
           </div>
-          <div className="row-start-2 px-4">
-            <p className="text-4xl rtl font-arabic">{dhikr.arabic_text}</p>
+          <div className="row-start-2 px-4 text-4xl">
+            <p className="rtl font-arabic">{dhikr.arabic_text}</p>
           </div>
           {selected.showEnglish ? (
             <English content={dhikr.translation_eng} />

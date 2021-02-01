@@ -135,10 +135,10 @@ export async function getStaticProps() {
         "transliteration_source",
         "translation_eng",
         "translation_eng_source",
-        "translation_nor",
-        "translation_nor_source",
-        "translation_fr",
-        "translation_fr_source",
+        // "translation_nor",
+        // "translation_nor_source",
+        // "translation_fr",
+        // "translation_fr_source",
       ],
       sort: [{ field: "key_id", direction: "asc" }],
     })
@@ -157,10 +157,10 @@ export async function getStaticProps() {
       transliteration_source: api.get("transliteration_source"),
       translation_eng: api.get("translation_eng"),
       translation_eng_source: api.get("translation_eng_source"),
-      translation_nor: api.get("translation_nor"),
-      translation_nor_source: api.get("translation_nor_source"),
-      translation_fr: api.get("translation_fr"),
-      translation_fr_source: api.get("translation_fr_source"),
+      // translation_nor: api.get("translation_nor"),
+      // translation_nor_source: api.get("translation_nor_source"),
+      // translation_fr: api.get("translation_fr"),
+      // translation_fr_source: api.get("translation_fr_source"),
     };
   });
 

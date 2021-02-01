@@ -36,7 +36,7 @@ export default function translationMenu(props) {
               English
             </label>
           </div>
-          <div
+          {/* <div
             className={
               "flex h-12 rounded-md" +
               (selectedFrench ? " bg-" + theme + "-primary font-bold" : "")
@@ -54,8 +54,8 @@ export default function translationMenu(props) {
               </div>
               Français
             </label>
-          </div>
-          <div
+          </div> */}
+          {/* <div
             className={
               "flex h-12 rounded-md" +
               (selectedNorwegian ? " bg-" + theme + "-primary font-bold" : "")
@@ -73,7 +73,7 @@ export default function translationMenu(props) {
               </div>
               Norsk
             </label>
-          </div>
+          </div> */}
         </form>
       </div>
       <div>
