@@ -2,7 +2,7 @@ import React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 class MyDocument extends Document {
   render() {
-    const GA_MEASUREMENT_ID = "G-GSEGKZ4FYK";
+    const GA_MEASUREMENT_ID = "G-17L4DMN49N";
     return (
       <Html lang="en">
         <Head>
