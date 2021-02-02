@@ -1,8 +1,9 @@
-import { useState } from "react";
-import { Switch } from "@headlessui/react";
+import { useState, useContext } from "react";
+import { ThemeContext } from "../components/themecontext";
 
 export default function SelectTime(props) {
   const enabled = props.state;
+  const { theme, setTheme } = useContext(ThemeContext);
 
   const sun = (
     <svg
@@ -41,10 +42,11 @@ export default function SelectTime(props) {
   return (
     <div className="flex justify-center">
       <button
+        aria-label="Select time"
         type="button"
         checked={enabled}
         onClick={() => props.onChange()}
-        className="bg-gray-200 flex items-center h-16 w-64 md:h-24 md:w-96 rounded-full z-10 focus:ring focus:outline-none"
+        className={`bg-${theme}-secondary flex items-center h-16 w-64 md:h-24 md:w-96 rounded-full z-10 focus:ring focus:outline-none`}
       >
         <div className="w-full flex items-center">
           <div className="mx-auto z-30">
@@ -58,7 +60,7 @@ export default function SelectTime(props) {
         <span
           className={`${
             enabled ? "translate-x-32 md:translate-x-48" : "translate-x-0"
-          } absolute inline-block transform h-16 w-32 md:h-24 md:w-48 bg-white rounded-full z-20`}
+          } absolute inline-block transform h-16 w-32 md:h-24 md:w-48 bg-${theme}-primary border-4 border-${theme}-secondary rounded-full z-20`}
         />
       </button>
     </div>

@@ -1,17 +1,25 @@
 import { useState, useContext } from "react";
+import "tailwindcss/tailwind.css";
 import Head from "next/head";
 import Airtable from "airtable";
-import ProgressBar from "../components/progressbar";
-import Img from "../components/img";
+import Menu from "../components/menu";
+// import ProgressBar from "../components/progressbar";
+import Landing from "../components/landing";
 import SelectTime from "../components/selecttime";
 import Card from "../components/card";
-import Burger from "../components/svgs/burger";
-import Close from "../components/svgs/close";
-import TranslationsMenu from "../components/translationsmenu";
+import { ThemeContext } from "../components/themecontext";
 
 function IndexPage({ adhkar }) {
   // Menu opener state
   const [toggle, setToggle] = useState(false);
+
+  // Theme state
+  const [theme, setTheme] = useState("lightgreen");
+
+  var color = {
+    primary: "bg-" + theme + "-primary",
+    secondary: "bg-" + theme + "-secondary",
+  };
 
   // Translation states
   const [english, setEnglish] = useState(false);
@@ -32,6 +40,9 @@ function IndexPage({ adhkar }) {
   const handleTranslationChange = (event) => {
     let lang = event.target.name;
     let state = event.target.checked;
+    setTimeout(() => {
+      setToggle(false);
+    }, 500);
 
     switch (lang) {
       case "english":
@@ -60,70 +71,47 @@ function IndexPage({ adhkar }) {
     var time = (adhkar = adhkar.filter((dhikr) => dhikr.time_of_day === time));
   })();
 
-  const drawer = (
-    <div
-      className={
-        "z-50 fixed inset-y-0 right-0 flow space-y-6 bg-white w-5/6 md:w-3/6 lg:w-2/6 transform ease-in-out transition-all duration-300" +
-        (toggle ? " translate-x-0" : " translate-x-full")
-      }
-    >
-      <nav className="flow-root">
-        <button
-          className="float-right pt-2 pr-2"
-          onClick={() => {
-            setToggle(false);
-          }}
-        >
-          <Close />
-        </button>
-      </nav>
-      <TranslationsMenu
-        selectedTranslations={states}
-        onChange={(event) => handleTranslationChange(event)}
-      />
-    </div>
-  );
-
   return (
     // full app
     // Add overflow-x-hidden below
-    <div className="mx-auto w-full bg-lightgreen-primary">
-      <Head>
-        <title>Adhkar - Dhikr.life</title>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      <div
+        className={
+          `mx-auto w-full ${color.primary} ` +
+          (theme === "dark" ? "text-white" : "text-black")
+        }
+      >
+        <Head>
+          <title>Dhikr.life - Adhkar</title>
 
-        <meta charSet="UTF-8" />
-        <meta
-          name="Description"
-          content="Dhikr.life, Adhkar morning and evening, Dhikr, Supplications in islam, Sunnah adhkar, Adhkar Salafi"
+          <meta charSet="UTF-8" />
+          <meta
+            name="Description"
+            content="Dhikr.life, Adhkar morning and evening, Dhikr, Supplications in islam, Sunnah adhkar, Adhkar Salafi"
+          />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+          />
+          <meta name="apple-mobile-web-app-capable" content="yes" />
+          <meta
+            name="apple-mobile-web-app-status-bar-style"
+            content="black-translucent"
+          />
+        </Head>
+        {/* Navigation drawer */}
+        <Landing onClick={(value) => setToggle(value)} />
+        <Menu
+          translationStates={states}
+          state={toggle}
+          onClick={() => setToggle(!toggle)}
+          onChange={(event) => handleTranslationChange(event)}
         />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-        />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta
-          name="apple-mobile-web-app-status-bar-style"
-          content="black-translucent"
-        />
-      </Head>
-      {/* Navigation drawer */}
-      <nav className="flow-root">
-        <button
-          className="pt-2 pr-2 float-right"
-          onClick={() => {
-            setToggle(true);
-          }}
-        >
-          <Burger />
-        </button>
-      </nav>
-      {drawer}
-      {/* landing screen */}
-      <Img />
-      <SelectTime state={enabled} onChange={() => setEnabled(!enabled)} />
-      {/* Card components */}
-      <Card selectedTranslations={states} content={adhkar} />
-    </div>
+        <SelectTime state={enabled} onChange={() => setEnabled(!enabled)} />
+        {/* Card components */}
+        <Card selectedTranslations={states} content={adhkar} />
+      </div>
+    </ThemeContext.Provider>
   );
 }
 
@@ -147,10 +135,10 @@ export async function getStaticProps() {
         "transliteration_source",
         "translation_eng",
         "translation_eng_source",
-        "translation_nor",
-        "translation_nor_source",
-        "translation_fr",
-        "translation_fr_source",
+        // "translation_nor",
+        // "translation_nor_source",
+        // "translation_fr",
+        // "translation_fr_source",
       ],
       sort: [{ field: "key_id", direction: "asc" }],
     })
@@ -169,10 +157,10 @@ export async function getStaticProps() {
       transliteration_source: api.get("transliteration_source"),
       translation_eng: api.get("translation_eng"),
       translation_eng_source: api.get("translation_eng_source"),
-      translation_nor: api.get("translation_nor"),
-      translation_nor_source: api.get("translation_nor_source"),
-      translation_fr: api.get("translation_fr"),
-      translation_fr_source: api.get("translation_fr_source"),
+      // translation_nor: api.get("translation_nor"),
+      // translation_nor_source: api.get("translation_nor_source"),
+      // translation_fr: api.get("translation_fr"),
+      // translation_fr_source: api.get("translation_fr_source"),
     };
   });
 
