@@ -30,7 +30,7 @@ class MyDocument extends Document {
         <body className="font-libre">
           <noscript>
             <iframe
-              src={`https://www.googletagmanager.com/ns.html?id=${GTM_MEASUREMENT_ID}`}
+              src={`"https://www.googletagmanager.com/ns.html?id=${GTM_MEASUREMENT_ID}"`}
               height="0"
               width="0"
               style="display:none;visibility:hidden"
