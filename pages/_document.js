@@ -28,14 +28,11 @@ class MyDocument extends Document {
           />
         </Head>
         <body className="font-libre">
-          <noscript>
-            <iframe
-              src={"https://www.googletagmanager.com/ns.html?id=GTM-KZ79B240"}
-              height="0"
-              width="0"
-              style="display:none;visibility:hidden"
+          <noscript
+            dangerouslySetInnerHTML={{
+              __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_MEASUREMENT_ID}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+            }}
           />
-          </noscript>
           <Main />
           <NextScript />
         </body>
@@ -44,3 +41,4 @@ class MyDocument extends Document {
   }
 }
 export default MyDocument;
+
