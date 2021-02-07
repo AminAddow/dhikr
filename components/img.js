@@ -11,12 +11,7 @@ export default function Img(props) {
         alt="Dhikr life logo"
       /> */}
       <div className="flex justify-center">
-        <img
-          src="/img/dhikr-logo-new.png"
-          alt="Dhikr life logo"
-          width={500}
-          height={500}
-        />
+        <img src="/img/dhikr-logo-new.png" alt="Dhikr life logo" width={500} />
       </div>
     </div>
   );
