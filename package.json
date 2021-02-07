@@ -2,10 +2,11 @@
   "name": "dhikr-next",
   "version": "1.0.0",
   "scripts": {
-    "dev": "next",
-    "build": "next build",
+    "dev": "npm run clean && next",
+    "build": "npm run clean && next build",
     "start": "next start",
-    "export": "next export"
+    "export": "next export",
+    "clean": "npx rimraf .next"
   },
   "dependencies": {
     "@headlessui/react": "^0.2.0",
