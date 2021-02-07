@@ -76,11 +76,10 @@ function IndexPage({ adhkar }) {
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <div
         className={
-          `mx-auto w-full ${color.primary} ` +
+          `mx-auto w-full pb-24 ${color.primary} ` +
           (theme === "dark" ? "text-white" : "text-black")
         }
       >
-        {/* Navigation drawer */}
         <Landing onClick={(value) => setToggle(value)} />
         <Menu
           translationStates={states}

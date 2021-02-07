@@ -37,8 +37,8 @@ module.exports = {
         secondary: "#bcd9de",
       },
       pop: {
-        primary: "#E6AEB9",
-        secondary: "#FDEEEB",
+        primary: "#ffe5ea",
+        secondary: "#fff2f4",
       },
       dark: {
         primary: "#121212",
