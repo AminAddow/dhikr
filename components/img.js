@@ -14,7 +14,7 @@ export default function Img(props) {
         <img
           src="/img/dhikr-logo-dark.png"
           alt="Dhikr life logo"
-          layout="responsive"
+          layout="intrinsic"
           width={500}
           height={500}
         />
