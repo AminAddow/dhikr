@@ -4,7 +4,7 @@ const runtimeCaching = require("next-pwa/cache");
 
 module.exports = withPWA({
   pwa: {
-    runtimeCaching,
+    // runtimeCaching,
   },
   env: {
     API_URL: process.env.API_URL,
