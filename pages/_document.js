@@ -6,7 +6,7 @@ class MyDocument extends Document {
     const GTM_MEASUREMENT_ID = "GTM-KZ79B24";
     return (
       <Html>
-        <Head>
+        <Head lang="en">
           <script
             dangerouslySetInnerHTML={{
               __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

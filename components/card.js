@@ -69,7 +69,7 @@ export default function card(props) {
             </p>
           </div>
           <div className="row-start-2 px-4 text-4xl">
-            <p className="rtl leading-relaxed font-arabic">
+            <p className="rtl leading-normal font-arabic">
               {dhikr.arabic_text}
             </p>
           </div>

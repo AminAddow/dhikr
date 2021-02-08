@@ -31,7 +31,7 @@ function MyApp({ Component, pageProps }) {
 
         <meta name="msapplication-TileColor" content="#f5f5f5" />
         <meta name="msapplication-tap-highlight" content="no" />
-        <meta name="theme-color" content="#008036" />
+        <meta name="theme-color" content="#f5f5f5" />
 
         <link
           rel="apple-touch-icon"
