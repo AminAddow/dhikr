@@ -1,11 +1,12 @@
 import React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
+
 class MyDocument extends Document {
   render() {
     const GTM_MEASUREMENT_ID = "GTM-KZ79B24";
     return (
-      <Html lang="en">
-        <Head>
+      <Html>
+        <Head lang="en">
           <script
             dangerouslySetInnerHTML={{
               __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -15,17 +16,6 @@ class MyDocument extends Document {
   })(window,document,'script','dataLayer','${GTM_MEASUREMENT_ID}');`,
             }}
           ></script>
-          <link
-            href="/fonts/Uthmanic/KFGQPC.otf"
-            as="font"
-            type="font/otf"
-            crossOrigin="true"
-          />
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Mirza&family=Scheherazade&display=swap"
-            rel="stylesheet"
-          />
         </Head>
         <body className="font-libre">
           <noscript
@@ -41,4 +31,3 @@ class MyDocument extends Document {
   }
 }
 export default MyDocument;
-

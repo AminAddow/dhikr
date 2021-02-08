@@ -7,7 +7,7 @@ export default function landing(props) {
       <nav className="flow-root">
         <button
           aria-label="Open menu"
-          className="pt-2 pr-2 float-right"
+          className="fixed pt-2 pr-2 top-0 right-0"
           onClick={() => {
             props.onClick(true);
           }}

@@ -1,6 +1,5 @@
 import { useState, useContext } from "react";
 import "tailwindcss/tailwind.css";
-import Head from "next/head";
 import Airtable from "airtable";
 import Menu from "../components/menu";
 // import ProgressBar from "../components/progressbar";
@@ -77,29 +76,10 @@ function IndexPage({ adhkar }) {
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <div
         className={
-          `mx-auto w-full ${color.primary} ` +
+          `mx-auto w-full pb-24 ${color.primary} ` +
           (theme === "dark" ? "text-white" : "text-black")
         }
       >
-        <Head>
-          <title>Dhikr.life - Adhkar</title>
-
-          <meta charSet="UTF-8" />
-          <meta
-            name="Description"
-            content="Dhikr.life, Adhkar morning and evening, Dhikr, Supplications in islam, Sunnah adhkar, Adhkar Salafi"
-          />
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-          />
-          <meta name="apple-mobile-web-app-capable" content="yes" />
-          <meta
-            name="apple-mobile-web-app-status-bar-style"
-            content="black-translucent"
-          />
-        </Head>
-        {/* Navigation drawer */}
         <Landing onClick={(value) => setToggle(value)} />
         <Menu
           translationStates={states}
@@ -121,7 +101,7 @@ export async function getStaticProps() {
   });
 
   const records = await airtable
-    .base("appijFDoXEaa1S4tF")("Data")
+    .base("appijFDoXEaa1S4tF")("Master")
     .select({
       fields: [
         "key_id",

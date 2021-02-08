@@ -33,12 +33,12 @@ module.exports = {
         secondary: "#E3E6DA",
       },
       darkgreen: {
-        primary: "#5E756D",
-        secondary: "#B2BFB6",
+        primary: "#89BCC4",
+        secondary: "#bcd9de",
       },
       pop: {
-        primary: "#D3C3C3",
-        secondary: "#FDEEEB",
+        primary: "#ffe5ea",
+        secondary: "#fff2f4",
       },
       dark: {
         primary: "#121212",

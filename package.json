@@ -2,10 +2,11 @@
   "name": "dhikr-next",
   "version": "1.0.0",
   "scripts": {
-    "dev": "next",
-    "build": "next build",
+    "dev": "npm run clean && next",
+    "build": "npm run clean && next build",
     "start": "next start",
-    "export": "next export"
+    "export": "next export",
+    "clean": "npx rimraf .next"
   },
   "dependencies": {
     "@headlessui/react": "^0.2.0",
@@ -14,6 +15,7 @@
     "dotenv": "^8.2.0",
     "isomorphic-unfetch": "^3.0.0",
     "next": "^10.0.5",
+    "next-pwa": "^5.0.5",
     "node-fetch": "^2.6.1",
     "postcss": "^8.2.4",
     "postcss-import": "^12.0.1",
