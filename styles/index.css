@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.rtl {
+  direction: rtl;
+}
+
+@layer base {
+  @font-face {
+    font-family: "Uthmanic";
+    src: url("/fonts/Uthmanic/KFGQPC.otf");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+  }
+}

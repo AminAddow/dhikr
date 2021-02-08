@@ -1,42 +1,33 @@
 {
-  "name": "dhikr-app",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "bootstrap": "^4.4.1",
-    "firebase": "^7.14.2",
-    "logrocket": "^1.0.7",
-    "node-sass": "^4.14.0",
-    "react": "^16.13.1",
-    "react-bootstrap": "^1.0.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "^3.4.1"
-  },
+  "name": "dhikr-next",
+  "version": "1.0.0",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "npm run clean && next",
+    "build": "npm run clean && next build",
+    "start": "next start",
+    "export": "next export",
+    "clean": "npx rimraf .next"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "dependencies": {
+    "@headlessui/react": "^0.2.0",
+    "airtable": "^0.10.0",
+    "autoprefixer": "^10.2.3",
+    "dotenv": "^8.2.0",
+    "isomorphic-unfetch": "^3.0.0",
+    "next": "^10.0.5",
+    "next-pwa": "^5.0.5",
+    "node-fetch": "^2.6.1",
+    "postcss": "^8.2.4",
+    "postcss-import": "^12.0.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.8.3"
-  }
+    "@tailwindcss/custom-forms": "^0.2.1",
+    "json-loader": "^0.5.7",
+    "postcss-flexbugs-fixes": "4.2.1",
+    "postcss-preset-env": "^6.7.0",
+    "tailwindcss": "^2.0.2"
+  },
+  "license": "MIT"
 }
