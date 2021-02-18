@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import { ThemeContext } from "../components/themecontext";
+import { useContext } from 'react';
+import { ThemeContext } from '../components/themecontext';
 
 export default function card(props) {
   const selected = props.selectedTranslations;
@@ -7,8 +7,8 @@ export default function card(props) {
   const { theme, setTheme } = useContext(ThemeContext);
 
   var color = {
-    primary: "bg-" + theme + "-primary",
-    secondary: "bg-" + theme + "-secondary",
+    primary: 'bg-' + theme + '-primary',
+    secondary: 'bg-' + theme + '-secondary'
   };
 
   const English = (props) => {
@@ -16,7 +16,7 @@ export default function card(props) {
       <div className="px-4">
         <hr
           className={
-            `my-4 w-1/3 mx-auto ` + (theme === "dark" ? "bg-white" : "bg-black")
+            `my-4 w-1/3 mx-auto ` + (theme === 'dark' ? 'bg-white' : 'bg-black')
           }
         />
         <h1 className="text-lg font-semibold">English</h1>
@@ -31,7 +31,7 @@ export default function card(props) {
         <hr
           className={
             `my-4 w-1/3 mx-auto` +
-            (theme === "dark" ? "text-white" : "text-black")
+            (theme === 'dark' ? 'text-white' : 'text-black')
           }
         />
         <h1 className="text-lg font-semibold">Français</h1>
@@ -46,7 +46,7 @@ export default function card(props) {
         <hr
           className={
             `my-4 w-1/3 mx-auto` +
-            (theme === "dark" ? "text-white" : "text-black")
+            (theme === 'dark' ? 'text-white' : 'text-black')
           }
         />
         <h1 className="text-lg font-semibold">Norsk</h1>
@@ -65,7 +65,7 @@ export default function card(props) {
           <div className="row-start-1 col-span-full">
             <p className="ml-4 mt-1 text-sm font-semibold">
               Repeat<span> {dhikr.read_amount_int} </span>
-              {dhikr.read_amount_int > 1 ? "times" : "time"}
+              {dhikr.read_amount_int > 1 ? 'times' : 'time'}
             </p>
           </div>
           <div className="row-start-2 px-4 text-4xl">
@@ -73,16 +73,14 @@ export default function card(props) {
               {dhikr.arabic_text}
             </p>
           </div>
-          {selected.showEnglish ? (
+          {dhikr.translation_eng != '-' && selected.showEnglish && (
             <English content={dhikr.translation_eng} />
-          ) : (
-            ""
           )}
-          {selected.showFrench ? <French content={dhikr.translation_fr} /> : ""}
+          {selected.showFrench ? <French content={dhikr.translation_fr} /> : ''}
           {selected.showNorwegian ? (
             <Norwegian content={dhikr.translation_nor} />
           ) : (
-            ""
+            ''
           )}
           <div className="col-span-full">
             <p className="ml-4 mt-1 text-sm">{dhikr.source}</p>
