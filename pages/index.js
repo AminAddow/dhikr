@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import 'tailwindcss/tailwind.css';
 import Airtable from 'airtable';
 import Menu from '../components/menu';
