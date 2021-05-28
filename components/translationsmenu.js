@@ -1,5 +1,5 @@
-import { useState, useContext } from "react";
-import { ThemeContext } from "../components/themecontext";
+import { useState, useContext } from 'react';
+import { ThemeContext } from '../components/themecontext';
 
 export default function translationMenu(props) {
   var selectedEnglish = props.selectedTranslations.showEnglish;
@@ -7,6 +7,16 @@ export default function translationMenu(props) {
   var selectedNorwegian = props.selectedTranslations.showNorwegian;
 
   const { theme, setTheme } = useContext(ThemeContext);
+
+  function confirmThemeColor(selection) {
+    try {
+      localStorage.setItem('theme', selection);
+      setTheme(selection);
+      console.warn(selection, 'set by selection in drawer');
+    } catch (error) {
+      console.error(selection);
+    }
+  }
 
   return (
     <>
@@ -19,8 +29,8 @@ export default function translationMenu(props) {
         <form className="px-4 flex flex-col space-y-4 pb-16">
           <div
             className={
-              "flex h-12 rounded-md" +
-              (selectedEnglish ? " bg-" + theme + "-primary font-bold" : "")
+              'flex h-12 rounded-md' +
+              (selectedEnglish ? ' bg-' + theme + '-primary font-bold' : '')
             }
           >
             <label className="flex items-center text-3xl h-full w-full select-none	">
@@ -30,7 +40,7 @@ export default function translationMenu(props) {
                   className="form-checkbox appearance-none border-solid border-2 border-dark-primary rounded-md text-gray-1000 checked:border-transparent text-3xl text-black"
                   name="english"
                   onChange={(event) => props.onChange(event)}
-                  checked={selectedEnglish || ""}
+                  checked={selectedEnglish || ''}
                 />
               </div>
               English
@@ -83,33 +93,33 @@ export default function translationMenu(props) {
         <div className="flex justify-center space-x-4">
           <button
             aria-label="Light green theme"
-            name={"lightgreen"}
+            name={'lightgreen'}
             onClick={() => {
-              setTheme("lightgreen");
+              confirmThemeColor('lightgreen');
             }}
             className="inline-block rounded-full h-12 w-12 bg-gradient-to-br from-lightgreen-primary to-lightgreen-secondary"
           />
           <button
             aria-label="Dark green theme"
-            name={"darkgreen"}
+            name={'sky'}
             onClick={() => {
-              setTheme("darkgreen");
+              confirmThemeColor('sky');
             }}
-            className="inline-block rounded-full h-12 w-12 bg-gradient-to-br from-darkgreen-primary to-darkgreen-secondary"
+            className="inline-block rounded-full h-12 w-12 bg-gradient-to-br from-sky-primary to-sky-secondary"
           />
           <button
             aria-label="Pink theme"
-            name={"pop"}
+            name={'pop'}
             onClick={() => {
-              setTheme("pop");
+              confirmThemeColor('pop');
             }}
             className="inline-block rounded-full h-12 w-12 bg-gradient-to-br from-pop-primary to-pop-secondary"
           />
           <button
             aria-label="Dark theme"
-            name={"dark"}
+            name={'dark'}
             onClick={() => {
-              setTheme("dark");
+              confirmThemeColor('dark');
             }}
             className="inline-block rounded-full h-12 w-12 bg-gradient-to-br from-dark-primary to-dark-secondary"
           />
