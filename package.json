@@ -14,7 +14,7 @@
     "autoprefixer": "^10.2.3",
     "dotenv": "^8.2.0",
     "isomorphic-unfetch": "^3.0.0",
-    "next": "^10.0.5",
+    "next": "^11.1.0",
     "next-pwa": "^5.0.5",
     "node-fetch": "^2.6.1",
     "postcss": "^8.2.4",
