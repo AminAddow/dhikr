@@ -7,6 +7,7 @@ import Landing from '../components/landing';
 import SelectTime from '../components/selecttime';
 import Card from '../components/card';
 import { ThemeContext } from '../components/themecontext';
+import { NextSeo } from 'next-seo';
 
 function IndexPage({ adhkar }) {
   // Menu opener state
@@ -88,6 +89,10 @@ function IndexPage({ adhkar }) {
     // full app
     // Add overflow-x-hidden below
     <ThemeContext.Provider value={{ theme, setTheme }}>
+      <NextSeo
+        title="Dhikr.life - Morning and Evening adhkar"
+        description="Mobile morning and evening supplications app in accordance to the sunnah. Read the supplications every morning after fajr prayer and evenings after asr prayer."
+      />
       <div
         className={
           `mx-auto w-full pb-24 ${color.primary} ` +
