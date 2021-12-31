@@ -91,7 +91,7 @@ function IndexPage({ adhkar }) {
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <NextSeo
         title="Dhikr.life - Morning and Evening adhkar"
-        description="Mobile morning and evening supplications app in accordance to the sunnah. Read the supplications every morning after fajr prayer and evenings after asr prayer."
+        description="Mobile morning and evening supplications app in accordance to the sunnah. Read the dhikr daily every morning after fajr prayer and evenings after asr prayer."
       />
       <div
         className={
