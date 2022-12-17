@@ -1,5 +1,4 @@
 module.exports = {
-  plugins: [require('@tailwindcss/custom-forms')],
   purge: {
     content: ['./components/**/*.js', './pages/**/*.js'],
     enabled: true,

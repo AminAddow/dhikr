@@ -116,7 +116,7 @@ function IndexPage({ adhkar }) {
 
 export async function getStaticProps() {
   const airtable = new Airtable({
-    apiKey: process.env.AIRTABLE_KEY
+    apiKey: process.env.NEXT_AIRTABLE_KEY
   });
 
   const records = await airtable
